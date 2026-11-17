@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Velvet Whispers — Home</title>
+<meta name="description" content="Stream vampire series, dark romance movies, and supernatural TV shows on Velvet Whispers. Discover Vampire Diaries, The Originals, Lucifer, and more.">
+<link rel="icon" type="image/png" href="../vw4.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    padding-top: 70px;
+  }
+
+  /* ── NAV ── */
+  .top-nav {
+    width: 100%;
+    height: 70px;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9999;
+    border-bottom: 1px solid #300000;
+    padding: 0 20px;
+  }
+
+  .top-nav-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .nav-left .logo {
+    font-family: 'Cinzel', serif;
+    color: #ff002a;
+    font-size: 20px;
+    text-shadow: 0 0 10px #b00000;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .nav-left a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    white-space: nowrap;
+  }
+
+  .nav-left a:hover { color: #ff0033; }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-right i {
+    color: #ff0000;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .nav-right i:hover {
+    color: #ff4d4d;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px #ff0000;
+  }
+
+  .profile-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #ff0000;
+    transition: 0.3s;
+  }
+
+  .profile-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ff0000;
+  }
+
+  .profile-menu-container { position: relative; }
+
+  .profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px; right: 0;
+    background: rgba(0,0,0,0.9);
+    border: 1px solid #330000;
+    width: 160px;
+    padding: 10px 0;
+    border-radius: 4px;
+    z-index: 10000;
+  }
+
+  .profile-dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+  }
+
+  .profile-dropdown a:hover { text-decoration: underline; color: #ff0033; }
+
+  .profile-dropdown hr {
+    border: none;
+    border-top: 1px solid #330000;
+    margin: 4px 0;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    top: -8px; right: 12px;
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #330000;
+  }
+
+  /* ── HERO ── */
+  @keyframes bgslideshow {
+    0%   { background-image: url('../n1.jpeg'); }
+    20%  { background-image: url('../n3.jpeg'); }
+    40%  { background-image: url('../n4.jpeg'); }
+    60%  { background-image: url('../n5.jpeg'); }
+    80%  { background-image: url('../n6.jpeg'); }
+    100% { background-image: url('../n8.jpeg'); }
+  }
+
+  .hero {
+    height: auto;
+    min-height: 420px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: bgslideshow 40s infinite linear;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px 24px;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+
+  .hero-content {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 8vw, 85px);
+    font-weight: 700;
+    color: #ff0033;
+    text-shadow: 0 0 25px #ff0000;
+    margin: 0 0 30px 0;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .story-block h2 {
+    font-family: 'Cinzel', serif;
+    color: #ff0033;
+    font-size: clamp(15px, 2.5vw, 26px);
+    margin-bottom: 6px;
+    text-shadow: 0 0 10px #900000;
+  }
+
+  .story-block p {
+    color: #ccc;
+    font-size: clamp(12px, 1.8vw, 16px);
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  /* ── SECTIONS ── */
+  .section-title {
+    margin: 60px 24px 16px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 3vw, 28px);
+    color: #b30000;
+  }
+
+  .movie-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 0 24px 30px;
+  }
+
+  .movie-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── EXTERNAL LINK BAR ── */
+  .ext-link-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(20,0,0,0.92);
+    border: 1px solid #3a0000;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    padding: 5px 8px;
+    font-size: 11px;
+    font-family: 'Cinzel', serif;
+    color: #ffcc33;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    line-height: 1.2;
+  }
+
+  .ext-link-bar:hover {
+    background: rgba(70,0,0,0.98);
+    color: #ffe680;
+  }
+
+  .ext-link-bar i { color: #f5c518; font-size: 10px; flex-shrink: 0; }
+  .ext-link-bar .ext-title { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+  .ext-link-bar .imdb-badge {
+    background: #f5c518;
+    color: #000;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 4px;
+    flex-shrink: 0;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.8px;
+  }
+
+  .movie-wrapper .movie-card { border-radius: 0 0 6px 6px; }
+  .movie-wrapper:not(:has(.ext-link-bar)) .movie-card { border-radius: 6px; }
+
+  .movie-card {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 10px #000;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .movie-card:hover { transform: scale(1.05); }
+
+  .story-title {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    color: #b30000;
+    padding: 6px 0;
+    font-size: 14px;
+  }
+
+  .movie-info-bar {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    background: rgba(10,0,0,0.85);
+    border: 1px solid #300000;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 6px;
+    height: 30px;
+  }
+
+  .fav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #240000;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    height: 100%;
+    transition: 0.25s ease;
+  }
+
+  .fav-btn:hover { background: #400000; transform: scale(1.1); }
+  .fav-btn.active { color: #ff002a; }
+
+  .imdb-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    color: #ffcc33;
+    font-size: 13px;
+    font-family: 'Cinzel', serif;
+    border-left: 1px solid #300000;
+    height: 100%;
+    letter-spacing: 1px;
+  }
+
+  a { text-decoration: none; }
+
+  /* ── DETAIL PAGE ── */
+  #movie-detail { display: none; color: #fff; }
+
+  /* ── COMMENTS & RATING SECTION ── */
+  .vwd-cr-section {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid #1e0000;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 32px;
+  }
+
+  .vwd-cr-title {
+    font-family: 'Cinzel', serif;
+    color: #b30000;
+    font-size: 18px;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2a0000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Star Rating Widget */
+  .vwd-rating-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: rgba(255,0,0,0.04);
+    border: 1px solid #2a0000;
+    border-radius: 8px;
+  }
+
+  .vwd-rating-label {
+    color: #aaa;
+    font-size: 13px;
+    font-family: 'Cinzel', serif;
+  }
+
+  .vwd-stars {
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .vwd-stars i {
+    font-size: 26px;
+    color: #333;
+    transition: color 0.15s, transform 0.15s;
+  }
+
+  .vwd-stars i:hover,
+  .vwd-stars i.hovered,
+  .vwd-stars i.selected {
+    color: #ffcc33;
+    transform: scale(1.15);
+  }
+
+  .vwd-rating-feedback {
+    font-size: 12px;
+    color: #666;
+    font-family: 'Roboto', sans-serif;
+    min-height: 16px;
+    transition: color 0.2s;
+  }
+
+  .vwd-rating-feedback.success { color: #00cc66; }
+  .vwd-rating-feedback.error   { color: #ff4444; }
+
+  /* Average rating display */
+  .vwd-avg-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    background: rgba(255,204,51,0.05);
+    border: 1px solid #2a1a00;
+    border-radius: 6px;
+  }
+
+  .vwd-avg-score {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: #ffcc33;
+  }
+
+  .vwd-avg-stars { display: flex; gap: 3px; }
+  .vwd-avg-stars i { font-size: 14px; color: #ffcc33; }
+  .vwd-avg-stars i.empty { color: #333; }
+
+  .vwd-avg-count {
+    color: #555;
+    font-size: 12px;
+  }
+
+  /* Comment Form */
+  .vwd-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .vwd-comment-form textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #2a0000;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 12px 14px;
+    resize: vertical;
+    min-height: 90px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .vwd-comment-form textarea:focus { border-color: #660000; }
+  .vwd-comment-form textarea::placeholder { color: #444; }
+
+  .vwd-comment-form-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .vwd-comment-form input[type="text"] {
+    flex: 1;
+    min-width: 140px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #2a0000;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    padding: 9px 12px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .vwd-comment-form input[type="text"]:focus { border-color: #660000; }
+  .vwd-comment-form input[type="text"]::placeholder { color: #444; }
+
+  .vwd-submit-btn {
+    background: #800000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+
+  .vwd-submit-btn:hover { background: #cc0000; transform: scale(1.02); }
+  .vwd-submit-btn:disabled { background: #3a0000; color: #555; cursor: not-allowed; transform: none; }
+
+  .vwd-comment-status {
+    font-size: 12px;
+    min-height: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .vwd-comment-status.success { color: #00cc66; }
+  .vwd-comment-status.error   { color: #ff4444; }
+
+  /* Comments List */
+  .vwd-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .vwd-comment-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #1e0000;
+    border-radius: 8px;
+    padding: 14px 16px;
+    position: relative;
+    animation: commentFadeIn 0.3s ease;
+  }
+
+  @keyframes commentFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .vwd-comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .vwd-comment-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: #3a0000;
+    border: 1px solid #500000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: #ff6666;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .vwd-comment-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .vwd-comment-name {
+    font-family: 'Cinzel', serif;
+    color: #ff6666;
+    font-size: 13px;
+  }
+
+  .vwd-comment-stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .vwd-comment-stars i { font-size: 11px; color: #ffcc33; }
+  .vwd-comment-stars i.empty { color: #333; }
+
+  .vwd-comment-date {
+    color: #444;
+    font-size: 11px;
+    margin-left: auto;
+  }
+
+  .vwd-comment-body {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .vwd-no-comments {
+    color: #444;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .vwd-load-more-btn {
+    background: transparent;
+    border: 1px solid #2a0000;
+    color: #880000;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
+    align-self: center;
+  }
+
+  .vwd-load-more-btn:hover { border-color: #ff0033; color: #ff0033; }
+
+  /* ── BELT NEWS ── */
+  .belt-wrap {
+    margin: 40px 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .belt-btn {
+    background: linear-gradient(135deg, #1a0000, #3a0000);
+    border: 1px solid #660000;
+    color: #ff6666;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    padding: 12px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .belt-btn:hover {
+    background: linear-gradient(135deg, #3a0000, #660000);
+    border-color: #ff0033;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(255,0,51,0.3);
+    transform: scale(1.03);
+  }
+
+  .belt-card {
+    max-width: 680px;
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #2a0000;
+    border-left: 3px solid #cc0000;
+    border-radius: 8px;
+    padding: 18px 22px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.35s ease, transform 0.35s ease, max-height 0.35s ease, padding 0.35s ease;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .belt-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 300px;
+    padding: 18px 22px;
+  }
+
+  .belt-card-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: #cc0000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .belt-card-headline {
+    font-family: 'Cinzel', serif;
+    color: #ff6666;
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .belt-card-body {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* ── FOOTER ── */
+  .vw-footer {
+    margin-top: 80px;
+    padding: 40px 0;
+    background: #060606;
+    border-top: 1px solid #300000;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.7);
+    color: #b3b3b3;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 24px;
+  }
+
+  .footer-section h4 {
+    font-family: 'Cinzel', serif;
+    color: #ff0033;
+    margin-bottom: 12px;
+    font-size: 17px;
+    text-shadow: 0 0 8px #600000;
+  }
+
+  .footer-section a {
+    display: block;
+    color: #aaa;
+    margin-bottom: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+
+  .footer-section a:hover { color: #ff0033; }
+  .footer-section p { line-height: 1.4; font-size: 13px; color: #ccc; }
+
+  .footer-icons { display: flex; flex-direction: column; gap: 12px; }
+
+  .belt-card {
+    max-width: 680px;
+    width: 90%;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #660000;
+    border-left: 4px solid #cc0000;
+    border-radius: 8px;
+    padding: 0 22px; /* Start with 0 padding vertically */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .belt-card.visible {
+    opacity: 1;
+    max-height: 300px; /* Large enough to hold the text */
+    padding: 20px 22px; /* Expand to show content */
+    margin-top: 20px;
+  }
+
+  .belt-card-headline {
+    font-family: 'Cinzel', serif;
+    color: #ff6666;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .belt-card-body {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .footer-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ccc;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .footer-icon:hover {
+    color: #ff0033;
+    text-shadow: 0 0 10px #ff0000;
+    transform: translateX(6px);
+  }
+
+  .icon { width: 20px; height: 20px; fill: #b30000; flex-shrink: 0; transition: 0.3s; }
+  .footer-icon:hover .icon { fill: #ff0033; filter: drop-shadow(0 0 6px #ff0000); }
+
+  .footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    padding: 0 24px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-left a:not(.logo) { display: none; }
+    .nav-left .logo { font-size: 17px; }
+    .hero { min-height: 360px; padding: 30px 16px; }
+    .story-grid { grid-template-columns: 1fr; gap: 0; }
+    .story-block p { margin-bottom: 12px; }
+    .movie-row { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; padding: 0 16px 24px; }
+    .section-title { margin: 40px 16px 12px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .movie-row { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; padding: 0 12px 20px; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero { min-height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ NAV ═══ -->
+<div class="top-nav">
+  <div class="nav-left">
+    <span class="logo">VELVET WHISPERS</span>
+    <a href="index.html">Home</a>
+    <a href="tvshows.html">TV Shows</a>
+    <a href="moviess.html">Movies</a>
+  </div>
+
+  <div class="nav-right">
+    <span id="search-toggle" style="cursor:pointer"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <a href="fav2.html"><i class="fa-solid fa-heart"></i></a>
+    <span><i class="fa-solid fa-bell"></i></span>
+
+    <div class="profile-menu-container">
+      <img src="../prpic4.jpeg" class="profile-icon" alt="Profile" id="profile-img">
+      <div class="profile-dropdown" id="profile-dropdown">
+        <div class="dropdown-arrow"></div>
+        <a href="whoiswatch.html">Switch Profile</a>
+        <a href="mange.html">Manage Profiles</a>
+        <hr>
+        <a href="#">Sign Out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-overlay" style="display:none; position:fixed; top:70px; left:0; width:100%; background:rgba(0,0,0,0.95); z-index:9998; padding:20px;">
+  <input type="text" id="search-input" placeholder="Search for dark tales..." style="width:100%; background:transparent; border:none; border-bottom:2px solid #ff0033; color:#fff; font-size:24px; padding:10px; outline:none;">
+  <div id="search-results" class="movie-row" style="margin-top:20px;"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ HERO ═══ -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-main-title">Whats About ...</div>
+    <div class="story-grid">
+      <div>
+        <div class="story-block">
+          <h2>The Vampire Diaries</h2>
+          <p>The Salvatore bloodline reawakens a centuries-old curse as love, death, and destiny collide in Mystic Falls.</p>
+        </div>
+        <div class="story-block">
+          <h2>The Originals</h2>
+          <p>The Mikaelson clan returns to New Orleans to reclaim their throne, igniting a war of family, power, and ancient magic.</p>
+        </div>
+      </div>
+      <div>
+        <div class="story-block">
+          <h2>Legacies</h2>
+          <p>The next generation of supernatural heirs must master their gifts as forgotten monsters rise from myth.</p>
+        </div>
+        <div class="story-block">
+          <h2>Twilight</h2>
+          <p>A forbidden love between mortal and immortal breaks the balance between ancient vampire covens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ DETAIL PAGE ═══ -->
+<div id="movie-detail"></div>
+
+<!-- ═══════════════════════════════════════════ HOME SECTIONS ═══ -->
+<div id="home-sections">
+  <div class="section-title">Main stream Series</div>
+  <div id="section-main-stream" class="movie-row"></div>
+
+  <div class="section-title">Trending Now</div>
+  <div id="section-trending" class="movie-row"></div>
+
+  <div class="section-title">Popular Vampire Series</div>
+  <div id="section-popular" class="movie-row"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ BELT NEWS ═══ -->
+<div class="belt-wrap" id="belt-wrap">
+  <button class="belt-btn" id="belt-btn">
+    <i class="fa-solid fa-newspaper"></i> Vampire Industry News
+  </button>
+  <div class="belt-card" id="belt-card">
+    <div class="belt-card-tag" id="belt-tag"></div>
+    <div class="belt-card-headline" id="belt-headline"></div>
+    <div class="belt-card-body" id="belt-body"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ FOOTER ═══ -->
+<footer class="vw-footer">
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h4>Velvet Whispers</h4>
+      <p>Where shadows breathe, legends awaken, and stories are whispered in crimson.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="tvshows.html">TV Shows</a>
+      <a href="moviess.html">Movies</a>
+    </div>
+    <div class="footer-section">
+      <h4>Support</h4>
+      <a href="#">Account</a>
+      <a href="#">Help Center</a>
+      <a href="#">Feedback</a>
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="footer-icons">
+        <a href="https://t.me/stack_overflowww" target="_blank" class="footer-icon">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M9.993 15.615l-.396 5.585c.568 0 .814-.244 1.109-.535l2.663-2.548 5.518 4.032c1.012.557 1.729.265 1.998-.935l3.62-16.953v-.001c.321-1.498-.541-2.083-1.518-1.72L1.619 10.44C.17 10.986.178 11.803 1.355 12.17l5.682 1.771 13.19-8.318c.62-.378 1.193-.168.725.245"/></svg>
+          Telegram
+        </a>
+        <a href="https://instagram.com/__biney_.33" target="_blank" class="footer-icon">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M12 2.163c-3.204 0-3.584.012-4.85.07-1.17.054-1.97.24-2.675.512a5.38 5.38 0 0 0-1.95 1.27A5.38 5.38 0 0 0 1.27 5.965c-.272.705-.458 1.505-.512 2.675C.7 9.905.687 10.285.687 13.49s.012 3.584.07 4.85c.054 1.17.24 1.97.512 2.675a5.38 5.38 0 0 0 1.27 1.95 5.38 5.38 0 0 0 1.95 1.27c.705.272 1.505.458 2.675.512 1.266.058 1.646.07 4.85.07s3.584-.012 4.85-.07c1.17-.054 1.97-.24 2.675-.512a5.38 5.38 0 0 0 1.95-1.27 5.38 5.38 0 0 0 1.27-1.95c.272-.705.458-1.505.512-2.675.058-1.266.07-1.646.07-4.85s-.012-3.584-.07-4.85c-.054-1.17-.24-1.97-.512-2.675a5.38 5.38 0 0 0-1.27-1.95 5.38 5.38 0 0 0-1.95-1.27c-.705-.272-1.505-.458-2.675-.512C15.584 2.175 15.204 2.163 12 2.163zm0 3.676a6.16 6.16 0 1 1 0 12.32 6.16 6.16 0 0 1 0-12.32zm7.2-.013a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Velvet Whispers — Crafted in Shadows by Sarmen Apresyan
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════ SCRIPTS ═══ -->
+<script>
+// ─────────────────────────────────────────────────────────────
+// CONSTANTS & HELPERS
+// ─────────────────────────────────────────────────────────────
+
+const assetUrl = (typeof window.assetUrl === 'function')
+  ? window.assetUrl
+  : (img) => img;
+
+const API = window.location.protocol === 'file:'
+  ? 'http://localhost:8000/backend/api'
+  : '/backend/api';
+
+const params      = new URLSearchParams(window.location.search);
+const TITLE_PARAM = params.get('title');
+const IS_DETAIL   = !!TITLE_PARAM;
+
+// ─────────────────────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────────────────────
+function movie(img, imdb, title, external = null) {
+  return { img: assetUrl(img), imdb, title, external };
+}
+
+const sections = [
+  {
+    id: 'section-main-stream',
+    movies: [
+      movie('../twlight.jpeg',   '5.2', 'Twilight',            'https://www.imdb.com/title/tt1099212/'),
+      movie('../leg.jpeg',       '7.3', 'Legacies',            'https://www.imdb.com/title/tt7503152/'),
+      movie('../vamp.jpeg',      '7.7', 'The Vampire Diaries', 'https://www.imdb.com/title/tt1405406/'),
+      movie('../originals.jpeg', '8.2', 'The Originals',       'https://www.imdb.com/title/tt2322441/')
+    ]
+  },
+  {
+    id: 'section-trending',
+    movies: [
+      movie('../nos.jpeg',      '8.0', 'Nosferatu',           'https://www.imdb.com/title/tt5040012/'),
+      movie('../tala.jpeg',     '7.1', 'Thale',               'https://www.imdb.com/title/tt1639378/'),
+      movie('../drac.jpeg',     '7.4', 'Dracula',             'https://www.imdb.com/title/tt0103874/'),
+      movie('../priest.jpeg',   '5.7', 'Priest',              'https://www.imdb.com/title/tt1038686/'),
+      movie('../fromdusk.jpeg', '7.2', 'From Dusk Till Dawn', 'https://www.imdb.com/title/tt0116367/'),
+      movie('../morb.jpeg',     '5.1', 'Morbius',             'https://www.imdb.com/title/tt5108870/'),
+      movie('../leg2.jpeg',     '7.3', 'Legacies',            'https://www.imdb.com/title/tt7503152/'),
+      movie('../teenw.jpeg',    '7.7', 'Teen Wolf',           'https://www.imdb.com/title/tt1567432/'),
+      movie('../underwo.jpeg',  '7.0', 'Underworld',          'https://www.imdb.com/title/tt0320691/'),
+      movie('../zomb.jpeg',     '6.8', 'Zombies',             'https://www.imdb.com/title/tt2361317/'),
+      movie('../nightt.jpeg',   '7.6', 'Night Teeth',         'https://www.imdb.com/title/tt10326354/'),
+      movie('../luc.jpeg',      '8.2', 'Lucifer',             'https://www.imdb.com/title/tt4052886/')
+    ]
+  },
+  {
+    id: 'section-popular',
+    movies: [
+      movie('../dracdrac.jpeg',   '8.5', 'Dracula',                   'https://www.imdb.com/title/tt0103874/'),
+      movie('../castl.jpeg',      '8.2', 'Castlevania',               'https://www.imdb.com/title/tt6517102/'),
+      movie('../hem.jpeg',        '7.1', 'Hemlock Grove',             'https://www.imdb.com/title/tt1751134/'),
+      movie('../tb.jpeg',         '7.9', 'True Blood',                'https://www.imdb.com/title/tt0844441/'),
+      movie('../sh.jpeg',         '6.7', 'Shadowhunters',             'https://www.imdb.com/title/tt4123430/'),
+      movie('../vh.jpeg',         '6.9', 'Van Helsing',               'https://www.imdb.com/title/tt4908908/'),
+      movie('../firsrtkill.jpeg', '6.6', 'First Kill',                'https://www.imdb.com/title/tt8762076/'),
+      movie('../fate.jpeg',       '6.9', 'Fate: The Winx Saga',       'https://www.imdb.com/title/tt8907560/'),
+      movie('../wwds.jpeg',       '8.5', 'What We Do in the Shadows', 'https://www.imdb.com/title/tt6484286/'),
+      movie('../from.jpeg',       '7.7', 'From',                      'https://www.imdb.com/title/tt9813792/'),
+      movie('../mm.jpeg',         '7.4', 'Midnight Mass',             'https://www.imdb.com/title/tt11676364/'),
+      movie('../thorder.jpeg',    '6.8', 'The Order',                 'https://www.imdb.com/title/tt5788792/'),
+      movie('../dreadful.jpeg',   '8.2', 'Penny Dreadful',            'https://www.imdb.com/title/tt2628232/'),
+      movie('../vampac.jpeg',     '6.5', 'Vampire Academy',           'https://www.imdb.com/title/tt1686821/'),
+      movie('../str.jpeg',        '7.3', 'The Strain',                'https://www.imdb.com/title/tt2654620/'),
+      movie('../van.jpeg',        '6.9', 'Van Helsing',               'https://www.imdb.com/title/tt4908908/'),
+      movie('../beinghuman.jpeg', '7.8', 'Being Human',               'https://www.imdb.com/title/tt1553656/'),
+      movie('../bloodties.jpeg',  '6.6', 'Blood Ties',                'https://www.imdb.com/title/tt0821866/')
+    ]
+  }
+];
+
+// ── LOCAL_POSTERS: all paths fixed to ../ ──
+const LOCAL_POSTERS = {
+  'The Vampire Diaries':       '../vamp.jpeg',
+  'The Originals':             '../originals.jpeg',
+  'Legacies':                  '../leg.jpeg',
+  'Blade':                     '../blade.jpeg',
+  'From Dusk Till Dawn':       '../fromdusk.jpeg',
+  'Twilight':                  '../twlight.jpeg',
+  'Interview with the Vampire':'../interview.jpeg',
+  'Underworld':                '../underwo.jpeg',
+  'Nosferatu':                 '../nos.jpeg',
+  'Dracula':                   '../drac.jpeg',
+  'Teen Wolf':                 '../teenw.jpeg',
+  'Zombies':                   '../zomb.jpeg',
+  'Van Helsing':               '../vh.jpeg',
+  'Being Human':               '../beinghuman.jpeg',
+  'Priest':                    '../priest.jpeg',
+  'Morbius':                   '../morb.jpeg',
+  'Castlevania':               '../castl.jpeg',
+  'Hemlock Grove':             '../hem.jpeg',
+  'True Blood':                '../tb.jpeg',
+  'Shadowhunters':             '../sh.jpeg',
+  'First Kill':                '../firsrtkill.jpeg',
+  'Fate: The Winx Saga':       '../fate.jpeg',
+  'What We Do in the Shadows': '../wwds.jpeg',
+  'From':                      '../from.jpeg',
+  'Midnight Mass':             '../mm.jpeg',
+  'The Order':                 '../thorder.jpeg',
+  'Penny Dreadful':            '../dreadful.jpeg',
+  'Vampire Academy':           '../vampac.jpeg',
+  'The Strain':                '../str.jpeg',
+  'Blood Ties':                '../bloodties.jpeg',
+  'Night Teeth':               '../nightt.jpeg',
+  'Lucifer':                   '../luc.jpeg'
+};
+
+const TRAILERS = {
+  'Twilight':                     'uxUgUlBKOaE',
+  'Legacies':                     'GEXuNqnMnjs',
+  'The Vampire Diaries':          '6mSMRnGKEMc',
+  'The Originals':                'K0pBxMBJH5k',
+  'Nosferatu':                    'fOBPJxIHOAw',
+  'Thale':                        'ik7RFzBMnS0',
+  'Dracula':                      'kHmZmJi36KU',
+  'Priest':                       '5oBIAoqH61s',
+  'From Dusk Till Dawn':          '6Dl4ZDaVQeE',
+  'Morbius':                      'oZ6iiRrz83w',
+  'Teen Wolf':                    'q2RkdcPLHPQ',
+  'Underworld':                   'd15FxmBaGX8',
+  'Zombies':                      'hWPpIsNhIJA',
+  'Night Teeth':                  '2NJSQijqnuU',
+  'Lucifer':                      'X4bF_quwNtw',
+  'Castlevania':                  'ThbSTt8c1yA',
+  'Hemlock Grove':                '0n7pxZD08MU',
+  'True Blood':                   'qMF2blMBzDo',
+  'Shadowhunters':                '6UbpSbOUhCg',
+  'Van Helsing':                  'C7c2UwrCBWY',
+  'First Kill':                   'YxNkOBcBFzs',
+  'Fate: The Winx Saga':          'X7emILFDMaA',
+  'What We Do in the Shadows':    'IAXEzFq1iA0',
+  'From':                         'lm3RnL7Lm2Q',
+  'Midnight Mass':                'x8XTEF2q-BE',
+  'The Order':                    '4j4rNCHWmCo',
+  'Penny Dreadful':               '5HKMiJeRYi8',
+  'Vampire Academy':              '4fVEX4UAYtU',
+  'The Strain':                   '4cVykGSqCOQ',
+  'Being Human':                  '07Ps5sFXPh8',
+  'Blood Ties':                   '3VkQFGMQoaM'
+};
+
+const SYNOPSES = {
+  'Twilight':                  'A forbidden love between mortal and immortal breaks the balance between ancient vampire covens.',
+  'Legacies':                  'The next generation of supernatural heirs must master their gifts as forgotten monsters rise from myth.',
+  'The Vampire Diaries':       'The Salvatore bloodline reawakens a centuries-old curse as love, death, and destiny collide in Mystic Falls.',
+  'The Originals':             'The Mikaelson clan returns to New Orleans to reclaim their throne, igniting a war of family, power, and ancient magic.',
+  'Nosferatu':                 'A haunting reimagining of the classic vampire tale set in 19th century Germany.',
+  'Thale':                     'Two crime scene cleaners discover a mythological creature hiding in a basement.',
+  'Dracula':                   'Count Dracula pursues his lost love through the streets of Victorian London.',
+  'Priest':                    'A warrior priest hunts vampires across a post-apocalyptic wasteland to save his niece.',
+  'From Dusk Till Dawn':       'Two criminals and their hostages end up in a bar that turns out to be a vampire joint.',
+  'Morbius':                   'A biochemist accidentally becomes a living vampire while trying to cure a rare blood disease.',
+  'Teen Wolf':                 'A teenager bitten by a werewolf must navigate high school while battling supernatural forces.',
+  'Underworld':                'A vampire warrior falls for a werewolf in an ancient war between the two species.',
+  'Zombies':                   'Disney musical where zombies and cheerleaders must coexist in high school.',
+  'Night Teeth':               'A chauffeur discovers his passengers are vampires on a deadly night across Los Angeles.',
+  'Lucifer':                   'The Devil abandons Hell and opens a nightclub in LA, becoming a consultant for the LAPD.',
+  'Castlevania':               'A vampire hunter fights to save a besieged city from an army of otherworldly creatures.',
+  'Hemlock Grove':             'A string of brutal murders tears apart a small Pennsylvania town hiding dark secrets.',
+  'True Blood':                'Vampires have come out of the coffin in a world where they can survive on synthetic blood.',
+  'Shadowhunters':             'A young woman discovers she is a Shadowhunter, a human-angel hybrid who hunts demons.',
+  'Van Helsing':               'A descendant of Van Helsing is resurrected to fight a vampire apocalypse.',
+  'First Kill':                'A teen vampire and a teen vampire hunter fall for each other, complicating both their lives.',
+  'Fate: The Winx Saga':       'Live-action reimagining following fairies at a boarding school for magical beings.',
+  'What We Do in the Shadows': 'A mockumentary about vampire roommates navigating life in Staten Island.',
+  'From':                      'Residents trapped in a nightmarish town in middle America fight to survive.',
+  'Midnight Mass':             'A charismatic priest brings miraculous events and terrifying consequences to a remote island.',
+  'The Order':                 'A college student joins a secret order of magic users and werewolves.',
+  'Penny Dreadful':            'Classic horror characters band together in Victorian London to combat supernatural threats.',
+  'Vampire Academy':           'A half-vampire guardian navigates the dangerous politics of vampire society.',
+  'The Strain':                'A CDC doctor discovers a mysterious viral outbreak turning New York into vampires.',
+  'Being Human':               'A vampire, werewolf, and ghost share a house trying to live normal lives.',
+  'Blood Ties':                'A PI teams up with a vampire to solve supernatural crimes in Toronto.'
+};
+
+// ─────────────────────────────────────────────────────────────
+// FAV HELPERS
+// ─────────────────────────────────────────────────────────────
+const FAV_KEY  = 'favourites';
+const getFavs  = () => JSON.parse(localStorage.getItem(FAV_KEY)) || [];
+const saveFavs = f  => localStorage.setItem(FAV_KEY, JSON.stringify(f));
+
+// ─────────────────────────────────────────────────────────────
+// HOME SECTIONS RENDERER
+// ─────────────────────────────────────────────────────────────
+function renderSections() {
+  sections.forEach(section => {
+    const container = document.getElementById(section.id);
+    if (!container) return;
+
+    section.movies.forEach(m => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'movie-wrapper';
+
+      const externalHref = m.external || `https://www.imdb.com/find?q=${encodeURIComponent(m.title)}`;
+
+      wrapper.innerHTML = `
+        <a class="ext-link-bar" href="${externalHref}" target="_blank" rel="noopener noreferrer"
+           aria-label="View ${m.title} on IMDb" title="${m.title} on IMDb">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span class="ext-title">${m.title}</span>
+          <span class="imdb-badge">IMDb</span>
+        </a>
+        <a href="movieinfo.html?title=${encodeURIComponent(m.title)}" aria-label="More about ${m.title}">
+          <div class="movie-card" style="background-image:url('${m.img}')"
+               role="img" aria-label="${m.title} poster"></div>
+        </a>
+        <div class="movie-info-bar">
+          <div class="fav-btn" data-movie="${m.title}"
+               aria-label="Add ${m.title} to favourites" role="button" tabindex="0">
+            <i class="fa-regular fa-heart"></i>
+          </div>
+          <div class="imdb-block">${m.imdb}</div>
+        </div>
+      `;
+      container.appendChild(wrapper);
+    });
+  });
+
+  restoreFavStates();
+  attachFavListeners();
+}
+
+function restoreFavStates() {
+  const favs = getFavs();
+  document.querySelectorAll('.fav-btn').forEach(btn => {
+    if (favs.includes(btn.dataset.movie)) {
+      btn.classList.add('active');
+      btn.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+    }
+  });
+}
+
+function attachFavListeners() {
+  document.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.movie;
+      let favs = getFavs();
+      if (favs.includes(t)) {
+        favs = favs.filter(x => x !== t);
+        btn.classList.remove('active');
+        btn.innerHTML = `<i class="fa-regular fa-heart"></i>`;
+      } else {
+        favs.push(t);
+        btn.classList.add('active');
+        btn.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+      }
+      saveFavs(favs);
+    });
+
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// DETAIL PAGE — COMMENTS + RATINGS
+// ─────────────────────────────────────────────────────────────
+
+const STAR_LABELS = ['', 'Terrible', 'Poor', 'Average', 'Good', 'Excellent'];
+
+function buildCommentsSection(movieTitle, container) {
+  const section = document.createElement('div');
+  section.className = 'vwd-cr-section';
+  section.id = 'vwd-cr-section';
+  section.innerHTML = `
+    <div class="vwd-cr-title"><i class="fa-solid fa-comments"></i> Community Reviews</div>
+
+    <div class="vwd-avg-rating" id="vwd-avg-rating">
+      <div class="vwd-avg-score" id="vwd-avg-score">—</div>
+      <div>
+        <div class="vwd-avg-stars" id="vwd-avg-stars">
+          ${[1,2,3,4,5].map(() => `<i class="fa-regular fa-star empty"></i>`).join('')}
+        </div>
+        <div class="vwd-avg-count" id="vwd-avg-count">No ratings yet</div>
+      </div>
+    </div>
+
+    <div class="vwd-rating-widget">
+      <div class="vwd-rating-label">Your Rating</div>
+      <div class="vwd-stars" id="vwd-star-row" role="group" aria-label="Rate this title">
+        ${[1,2,3,4,5].map(n =>
+          `<i class="fa-regular fa-star" data-star="${n}" role="button" tabindex="0" aria-label="${n} star${n>1?'s':''}"></i>`
+        ).join('')}
+      </div>
+      <div class="vwd-rating-feedback" id="vwd-rating-feedback">Click to rate</div>
+    </div>
+
+    <div class="vwd-comment-form" id="vwd-comment-form">
+      <textarea id="vwd-comment-text" placeholder="Share your thoughts about this title..." maxlength="1000"></textarea>
+      <div class="vwd-comment-form-row">
+        <input type="text" id="vwd-comment-name" placeholder="Your name (optional)" maxlength="60">
+        <button class="vwd-submit-btn" id="vwd-comment-submit">
+          <i class="fa-solid fa-paper-plane"></i> Post
+        </button>
+      </div>
+      <div class="vwd-comment-status" id="vwd-comment-status"></div>
+    </div>
+
+    <div class="vwd-comments-list" id="vwd-comments-list">
+      <div class="vwd-no-comments" id="vwd-comments-loading">
+        <i class="fa-solid fa-spinner fa-spin"></i> Loading comments...
+      </div>
+    </div>
+    <button class="vwd-load-more-btn" id="vwd-load-more" style="display:none">
+      Load More Comments
+    </button>
+  `;
+  container.appendChild(section);
+
+  initRatingWidget(movieTitle);
+  initCommentForm(movieTitle);
+  loadComments(movieTitle, true);
+  loadAverageRating(movieTitle);
+}
+
+async function loadAverageRating(title) {
+  try {
+    const res  = await fetch(`${API}/ratings.php?title=${encodeURIComponent(title)}&action=avg`);
+    const data = await res.json();
+    if (!res.ok || data.error) return;
+
+    const avg   = parseFloat(data.average) || 0;
+    const count = parseInt(data.count) || 0;
+
+    const scoreEl = document.getElementById('vwd-avg-score');
+    const starsEl = document.getElementById('vwd-avg-stars');
+    const countEl = document.getElementById('vwd-avg-count');
+
+    if (scoreEl) scoreEl.textContent = avg > 0 ? avg.toFixed(1) : '—';
+    if (starsEl && avg > 0) {
+      starsEl.innerHTML = [1,2,3,4,5].map(n => {
+        const cls = n <= Math.round(avg) ? 'fa-solid fa-star' : 'fa-regular fa-star empty';
+        return `<i class="${cls}"></i>`;
+      }).join('');
+    }
+    if (countEl) countEl.textContent = count > 0 ? `${count} rating${count !== 1 ? 's' : ''}` : 'No ratings yet';
+  } catch (_) { /* server not up, silently skip */ }
+}
+
+function initRatingWidget(title) {
+  const starRow = document.getElementById('vwd-star-row');
+  if (!starRow) return;
+
+  const stars    = starRow.querySelectorAll('i');
+  const feedback = document.getElementById('vwd-rating-feedback');
+
+  const savedKey   = `vw_rating_${title}`;
+  let selectedStar = parseInt(localStorage.getItem(savedKey)) || 0;
+  if (selectedStar) paintStars(stars, selectedStar, true);
+
+  stars.forEach((star, idx) => {
+    star.addEventListener('mouseenter', () => paintStars(stars, idx + 1, false));
+    star.addEventListener('mouseleave', () => paintStars(stars, selectedStar, true));
+
+    star.addEventListener('click', async () => {
+      const rating = idx + 1;
+      selectedStar = rating;
+      localStorage.setItem(savedKey, rating);
+      paintStars(stars, rating, true);
+      feedback.textContent = `You rated: ${STAR_LABELS[rating]} (${rating}/5)`;
+      feedback.className   = 'vwd-rating-feedback success';
+
+      try {
+        const username = localStorage.getItem('vw_username') || null;
+        await fetch(`${API}/ratings.php`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, rating, username })
+        });
+        loadAverageRating(title);
+      } catch (_) {
+        feedback.textContent = 'Rating saved locally (server unavailable).';
+      }
+    });
+
+    star.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); star.click(); }
+    });
+  });
+}
+
+function paintStars(stars, upTo, isSelected) {
+  stars.forEach((s, idx) => {
+    s.className = idx < upTo
+      ? `fa-solid fa-star${isSelected ? ' selected' : ' hovered'}`
+      : 'fa-regular fa-star';
+  });
+}
+
+let commentPage = 1;
+const COMMENTS_PER_PAGE = 8;
+
+function initCommentForm(title) {
+  const btn    = document.getElementById('vwd-comment-submit');
+  const status = document.getElementById('vwd-comment-status');
+  if (!btn) return;
+
+  btn.addEventListener('click', async () => {
+    const text     = (document.getElementById('vwd-comment-text')?.value || '').trim();
+    const nameVal  = (document.getElementById('vwd-comment-name')?.value || '').trim();
+    const username = nameVal || localStorage.getItem('vw_username') || 'Anonymous';
+    const rating   = parseInt(localStorage.getItem(`vw_rating_${title}`)) || 0;
+
+    if (!text) {
+      status.textContent  = 'Please write something before posting.';
+      status.className    = 'vwd-comment-status error';
+      return;
+    }
+
+    btn.disabled         = true;
+    status.textContent   = 'Posting...';
+    status.className     = 'vwd-comment-status';
+
+    try {
+      const res  = await fetch(`${API}/comments.php`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, username, text, rating })
+      });
+      const data = await res.json();
+
+      if (!res.ok || data.error) throw new Error(data.error || 'Failed to post');
+
+      status.textContent = '🩸 Comment posted!';
+      status.className   = 'vwd-comment-status success';
+      document.getElementById('vwd-comment-text').value = '';
+
+      prependComment({
+        username,
+        text,
+        rating,
+        created_at: new Date().toISOString()
+      });
+
+    } catch (err) {
+      status.textContent = 'Server unavailable — comment shown locally only.';
+      status.className   = 'vwd-comment-status error';
+      const username2    = nameVal || 'Anonymous';
+      prependComment({ username: username2, text, rating, created_at: new Date().toISOString() });
+      document.getElementById('vwd-comment-text').value = '';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  const loadMoreBtn = document.getElementById('vwd-load-more');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      commentPage++;
+      loadComments(title, false);
+    });
+  }
+}
+
+async function loadComments(title, reset) {
+  const list    = document.getElementById('vwd-comments-list');
+  const loadBtn = document.getElementById('vwd-load-more');
+  if (!list) return;
+
+  if (reset) {
+    commentPage = 1;
+    list.innerHTML = `<div class="vwd-no-comments" id="vwd-comments-loading">
+      <i class="fa-solid fa-spinner fa-spin"></i> Loading comments...
+    </div>`;
+  }
+
+  try {
+    const res  = await fetch(
+      `${API}/comments.php?title=${encodeURIComponent(title)}&page=${commentPage}&limit=${COMMENTS_PER_PAGE}`
+    );
+    const data = await res.json();
+
+    if (reset) list.innerHTML = '';
+
+    if (!res.ok || data.error) throw new Error(data.error);
+
+    const comments = data.comments || [];
+
+    if (comments.length === 0 && reset) {
+      list.innerHTML = `<div class="vwd-no-comments">No comments yet — be the first to whisper! 🩸</div>`;
+      if (loadBtn) loadBtn.style.display = 'none';
+      return;
+    }
+
+    comments.forEach(c => appendComment(c, list));
+
+    if (loadBtn) {
+      loadBtn.style.display = comments.length >= COMMENTS_PER_PAGE ? 'block' : 'none';
+    }
+
+  } catch (_) {
+    if (reset) {
+      list.innerHTML = `<div class="vwd-no-comments">Comments unavailable (server offline).</div>`;
+    }
+    if (loadBtn) loadBtn.style.display = 'none';
+  }
+}
+
+function appendComment(c, listEl) {
+  const card = buildCommentCard(c);
+  listEl.appendChild(card);
+}
+
+function prependComment(c) {
+  const list = document.getElementById('vwd-comments-list');
+  if (!list) return;
+  const placeholder = list.querySelector('.vwd-no-comments');
+  if (placeholder) placeholder.remove();
+  const card = buildCommentCard(c);
+  list.insertBefore(card, list.firstChild);
+}
+
+function buildCommentCard(c) {
+  const card = document.createElement('div');
+  card.className = 'vwd-comment-card';
+
+  const initials = (c.username || 'A').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  const date     = c.created_at ? new Date(c.created_at).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }) : '';
+  const rating   = parseInt(c.rating) || 0;
+
+  const starsHtml = rating > 0
+    ? `<div class="vwd-comment-stars">
+        ${[1,2,3,4,5].map(n =>
+          `<i class="${n <= rating ? 'fa-solid fa-star' : 'fa-regular fa-star empty'}"></i>`
+        ).join('')}
+      </div>`
+    : '';
+
+  const avatarHtml = c.avatar_url
+    ? `<div class="vwd-comment-avatar"><img src="${c.avatar_url}" alt="${c.username}" onerror="this.parentElement.textContent='${initials}'"></div>`
+    : `<div class="vwd-comment-avatar">${initials}</div>`;
+
+  card.innerHTML = `
+    <div class="vwd-comment-header">
+      ${avatarHtml}
+      <span class="vwd-comment-name">${escapeHtml(c.username || 'Anonymous')}</span>
+      ${starsHtml}
+      <span class="vwd-comment-date">${date}</span>
+    </div>
+    <div class="vwd-comment-body">${escapeHtml(c.text || c.comment_text || '')}</div>
+  `;
+  return card;
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// ─────────────────────────────────────────────────────────────
+// DETAIL PAGE — MAIN RENDERER
+// ─────────────────────────────────────────────────────────────
+function buildDetailShell() {
+  const detail = document.getElementById('movie-detail');
+  detail.innerHTML = `
+    <style>
+      .vwd-books-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin-bottom:20px; }
+      .vwd-book-card { text-decoration:none; display:block; background:rgba(255,204,51,0.06); border:1px solid #3a2a00; border-radius:10px; padding:16px; transition:0.3s; }
+      .vwd-book-card:hover { background:rgba(255,204,51,0.12); border-color:#ffcc33; transform:translateY(-2px); }
+      .vwd-book-title  { color:#ffcc33; font-family:'Cinzel',serif; font-size:14px; margin-bottom:4px; }
+      .vwd-book-author { color:#aaa; font-size:12px; margin-bottom:2px; }
+      .vwd-book-year   { color:#666; font-size:11px; margin-bottom:8px; }
+      .vwd-book-synopsis { color:#888; font-size:12px; line-height:1.5; }
+
+      #vwd-banner { width:100%; min-height:460px; background-size:cover; background-position:center top; background-color:#0a0000; position:relative; display:flex; align-items:flex-end; }
+      #vwd-banner .vwd-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.96) 100%); }
+      .vwd-banner-content { position:relative; z-index:2; padding:36px 32px; width:100%; }
+      #vwd-title { font-family:'Cinzel',serif; font-size:clamp(26px,5vw,58px); color:#ff0033; text-shadow:0 0 22px #900000; margin:0 0 12px; }
+      .vwd-meta { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+      .vwd-badge { background:rgba(255,0,0,0.12); border:1px solid #500000; color:#ffcc33; font-size:12px; padding:3px 12px; border-radius:4px; font-family:'Cinzel',serif; }
+      .vwd-star-badge { background:#f5c518; color:#000; font-weight:700; font-size:13px; padding:3px 12px; border-radius:4px; }
+      .vwd-actions { display:flex; gap:12px; flex-wrap:wrap; }
+      .vwd-btn-red { background:#cc0000; color:#fff; border:none; padding:11px 26px; border-radius:6px; font-size:14px; font-family:'Cinzel',serif; cursor:pointer; transition:0.3s; display:flex; align-items:center; gap:8px; }
+      .vwd-btn-red:hover { background:#ff0033; transform:scale(1.03); }
+      .vwd-btn-outline { background:transparent; color:#fff; border:1px solid #666; padding:11px 22px; border-radius:6px; font-size:14px; cursor:pointer; transition:0.3s; display:flex; align-items:center; gap:8px; }
+      .vwd-btn-outline:hover { border-color:#ff0033; color:#ff0033; }
+
+      .vwd-body { max-width:1200px; margin:0 auto; padding:40px 28px 60px; }
+      .vwd-top-grid { display:grid; grid-template-columns:1fr 260px; gap:24px; margin-bottom:36px; }
+      .vwd-left { display:flex; flex-direction:column; gap:20px; }
+      .vwd-poster-info { display:grid; grid-template-columns:200px 1fr; gap:24px; background:rgba(255,255,255,0.03); border:1px solid #1e0000; border-radius:10px; padding:20px; }
+      #vwd-poster { width:100%; border-radius:8px; box-shadow:0 0 24px rgba(255,0,0,0.2); object-fit:cover; }
+      .vwd-info-col h3 { font-family:'Cinzel',serif; color:#b30000; margin:0 0 10px; font-size:16px; }
+      .vwd-genres { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+      .vwd-genre { background:rgba(180,0,0,0.18); border:1px solid #500000; color:#ff6666; font-size:11px; padding:4px 12px; border-radius:20px; }
+      .vwd-stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; }
+      .vwd-stat { background:rgba(255,255,255,0.04); border:1px solid #1e0000; border-radius:6px; padding:10px 14px; }
+      .vwd-stat-label { color:#555; font-size:10px; text-transform:uppercase; letter-spacing:1px; }
+      .vwd-stat-val   { color:#fff; font-size:14px; margin-top:3px; font-weight:500; }
+      .vwd-synopsis-block { background:rgba(255,255,255,0.03); border:1px solid #1e0000; border-radius:10px; padding:20px 24px; }
+      .vwd-synopsis-block h3 { font-family:'Cinzel',serif; color:#b30000; margin:0 0 10px; font-size:16px; }
+      .vwd-synopsis-block p { color:#ccc; line-height:1.75; font-size:14px; margin:0; }
+
+      .vwd-right { display:flex; flex-direction:column; gap:16px; }
+      .vwd-side-box { background:rgba(255,255,255,0.03); border:1px solid #1e0000; border-radius:10px; padding:16px; }
+      .vwd-side-box h4 { font-family:'Cinzel',serif; color:#b30000; margin:0 0 10px; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+      .vwd-side-row { display:flex; justify-content:space-between; margin-bottom:8px; }
+      .vwd-side-label { color:#555; font-size:12px; }
+      .vwd-side-val   { color:#fff; font-size:12px; font-weight:500; }
+
+      .vwd-section-title { font-family:'Cinzel',serif; color:#b30000; font-size:clamp(15px,2.5vw,21px); margin:44px 0 16px; border-bottom:1px solid #2a0000; padding-bottom:8px; }
+      .vwd-trailer-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; border:1px solid #300000; }
+      .vwd-trailer-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+
+      .vwd-cast-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:16px; }
+      .vwd-cast-card { text-align:center; }
+      .vwd-cast-card img { width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid #500000; margin-bottom:6px; }
+      .vwd-cast-name { color:#ddd; font-size:12px; }
+      .vwd-cast-char { color:#ff6666; font-size:11px; font-style:italic; }
+      .vwd-cast-initials { width:72px; height:72px; border-radius:50%; background:#3a0000; border:2px solid #500000; color:#ff6666; font-family:'Cinzel',serif; font-size:22px; font-weight:700; display:flex; align-items:center; justify-content:center; margin:0 auto 6px; }
+
+      .vwd-related-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:12px; }
+      .vwd-rel-card { cursor:pointer; text-decoration:none; display:block; transition:0.3s; }
+      .vwd-rel-card:hover { transform:scale(1.05); }
+      .vwd-rel-poster { width:100%; aspect-ratio:2/3; background-size:cover; background-position:center; border-radius:8px; box-shadow:0 0 10px #000; }
+      .vwd-rel-title { color:#ccc; font-size:10px; text-align:center; padding:4px 4px 2px; font-family:'Cinzel',serif; line-height:1.3; word-break:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; min-height:28px; }
+      .vwd-rel-rating { text-align:center; color:#ffcc33; font-size:11px; padding-bottom:4px; }
+
+      .vwd-loading { text-align:center; padding:80px 24px; font-family:'Cinzel',serif; color:#500000; font-size:20px; }
+
+      @media(max-width:900px){ .vwd-top-grid { grid-template-columns:1fr; } .vwd-right { flex-direction:row; flex-wrap:wrap; } .vwd-side-box { flex:1 1 180px; } }
+      @media(max-width:640px){ .vwd-poster-info { grid-template-columns:1fr; } .vwd-body { padding:24px 16px 40px; } #vwd-banner { min-height:300px; } }
+    </style>
+
+    <div id="vwd-loading" class="vwd-loading">🩸 Loading from the shadows...</div>
+
+    <div id="vwd-root" style="display:none">
+      <div id="vwd-banner">
+        <div class="vwd-overlay"></div>
+        <div class="vwd-banner-content">
+          <h1 id="vwd-title"></h1>
+          <div class="vwd-meta" id="vwd-meta"></div>
+          <div class="vwd-actions">
+            <button class="vwd-btn-red" id="vwd-play-btn" style="display:none">
+              <i class="fa-solid fa-play"></i> Watch Trailer
+            </button>
+            <button class="vwd-btn-outline" id="vwd-fav-btn">
+              <i class="fa-regular fa-heart"></i> My List
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="vwd-body" id="vwd-body">
+        <div class="vwd-top-grid">
+          <div class="vwd-left">
+            <div class="vwd-poster-info">
+              <img id="vwd-poster" src="" alt="Poster">
+              <div class="vwd-info-col">
+                <h3>Details</h3>
+                <div class="vwd-genres" id="vwd-genres"></div>
+                <div class="vwd-stats"  id="vwd-stats"></div>
+              </div>
+            </div>
+            <div class="vwd-synopsis-block">
+              <h3>Synopsis</h3>
+              <p id="vwd-synopsis"></p>
+            </div>
+          </div>
+          <div class="vwd-right">
+            <div class="vwd-side-box">
+              <h4>Quick Info</h4>
+              <div id="vwd-quickinfo"></div>
+            </div>
+            <div class="vwd-side-box">
+              <h4>Status</h4>
+              <div id="vwd-statusinfo"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="vwd-trailer-section" style="display:none">
+          <div class="vwd-section-title">🎬 Official Trailer</div>
+          <div class="vwd-trailer-wrap">
+            <iframe id="vwd-iframe" src="" allowfullscreen
+              allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>
+          </div>
+        </div>
+
+        <div id="vwd-cast-section" style="display:none">
+          <div class="vwd-section-title">Cast & Crew</div>
+          <div class="vwd-cast-grid" id="vwd-cast"></div>
+        </div>
+
+        <div id="vwd-related-section" style="display:none">
+          <div class="vwd-section-title">You May Also Like</div>
+          <div class="vwd-related-row" id="vwd-related"></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderDetail(d) {
+  const $ = id => document.getElementById(id);
+  const show = id => { const e = $(id); if (e) e.style.display = ''; };
+
+  document.title = `${d.title} — Velvet Whispers`;
+
+  const localPoster = LOCAL_POSTERS[d.title] || '';
+  const posterSrc   = d.poster_url || localPoster;
+  const bannerSrc   = d.banner_url || d.poster_url || localPoster;
+
+  // Banner
+  if (bannerSrc) {
+    const bannerUrl = bannerSrc.startsWith('http')
+      ? bannerSrc
+      : window.location.origin + (bannerSrc.startsWith('/') ? bannerSrc : '/' + bannerSrc);
+    $('vwd-banner').style.backgroundImage = `url('${bannerUrl}')`;
+  }
+
+  // Title
+  $('vwd-title').textContent = d.title;
+
+  // Meta badges
+  const badges = [d.release_year, d.category, d.age_rating,
+    d.seasons_count   ? d.seasons_count   + ' Seasons'  : null,
+    d.episodes_count  ? d.episodes_count  + ' Episodes' : null,
+    d.runtime_minutes ? d.runtime_minutes + ' min'      : null,
+  ].filter(Boolean).map(v => `<span class="vwd-badge">${v}</span>`).join('');
+  const ratingBadge = d.rating_score ? `<span class="vwd-star-badge">⭐ ${d.rating_score}</span>` : '';
+  $('vwd-meta').innerHTML = badges + ratingBadge;
+
+  // Poster — fixed: use ../ path resolution instead of /frontend/
+  const posterEl = $('vwd-poster');
+  posterEl.src   = posterSrc.startsWith('http')
+    ? posterSrc
+    : posterSrc.startsWith('../')
+      ? posterSrc
+      : '../' + posterSrc.replace(/^(\.\.\/|frontend\/|\/frontend\/)/, '');
+  posterEl.alt     = d.title;
+  posterEl.onerror = () => posterEl.style.display = 'none';
+
+  // Synopsis
+  $('vwd-synopsis').textContent = d.long_description || d.synopsis || SYNOPSES[d.title] || 'No synopsis available.';
+
+  // Genres
+  $('vwd-genres').innerHTML = (d.genres || []).map(g => `<span class="vwd-genre">${g}</span>`).join('') || '<span style="color:#444">—</span>';
+
+  // Stats
+  const stats = [
+    { l:'Year',     v: d.release_year },
+    { l:'Runtime',  v: d.runtime_minutes ? d.runtime_minutes + ' min' : null },
+    { l:'Seasons',  v: d.seasons_count },
+    { l:'Episodes', v: d.episodes_count },
+    { l:'Rating',   v: d.rating_score   ? '⭐ ' + d.rating_score : null },
+    { l:'Votes',    v: d.num_ratings    ? d.num_ratings + ' ratings' : null },
+  ].filter(s => s.v != null);
+  $('vwd-stats').innerHTML = stats.map(s => `<div class="vwd-stat"><div class="vwd-stat-label">${s.l}</div><div class="vwd-stat-val">${s.v}</div></div>`).join('');
+
+  // Quick info
+  const qRows = [
+    { l:'Category', v: d.category },
+    { l:'Universe', v: d.universe },
+    { l:'Type',     v: d.media_type },
+    { l:'Age',      v: d.age_rating },
+  ].filter(r => r.v);
+  $('vwd-quickinfo').innerHTML = qRows.map(r => `<div class="vwd-side-row"><span class="vwd-side-label">${r.l}</span><span class="vwd-side-val">${r.v}</span></div>`).join('') || '<span style="color:#444">—</span>';
+
+  // Status
+  const statusColor = d.status === 'Returning' ? '#00ff88' : d.status === 'Ended' ? '#ff4444' : '#ffcc33';
+  $('vwd-statusinfo').innerHTML = `
+    <div class="vwd-side-row"><span class="vwd-side-label">Status</span><span class="vwd-side-val" style="color:${statusColor}">${d.status || '—'}</span></div>
+    <div class="vwd-side-row"><span class="vwd-side-label">Featured</span><span class="vwd-side-val">${d.is_featured ? '⭐ Yes' : 'No'}</span></div>`;
+
+  // Trailer
+  let ytId = null;
+  if (d.trailer_url) {
+    const m = d.trailer_url.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    if (m) ytId = m[1];
+  }
+  if (!ytId) ytId = TRAILERS[d.title] || null;
+  if (ytId) {
+    $('vwd-iframe').src = `https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`;
+    show('vwd-trailer-section');
+    const playBtn = $('vwd-play-btn');
+    playBtn.style.display = 'flex';
+    playBtn.onclick = () => $('vwd-trailer-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Favourites
+  const favBtn = $('vwd-fav-btn');
+  const syncFav = () => {
+    const inList = getFavs().includes(d.title);
+    favBtn.innerHTML = inList
+      ? '<i class="fa-solid fa-heart" style="color:#ff002a"></i> In My List'
+      : '<i class="fa-regular fa-heart"></i> My List';
+  };
+  syncFav();
+  favBtn.onclick = () => {
+    let f = getFavs();
+    f = f.includes(d.title) ? f.filter(x => x !== d.title) : [...f, d.title];
+    saveFavs(f); syncFav();
+  };
+
+  // Books
+  if (d.books && d.books.length) {
+    const bSection = document.createElement('div');
+    bSection.innerHTML = `<div class="vwd-section-title">📖 Source Books</div><div class="vwd-books-row" id="vwd-books"></div>`;
+    $('vwd-cast-section').parentNode.insertBefore(bSection, $('vwd-cast-section'));
+    document.getElementById('vwd-books').innerHTML = d.books.map(b => `
+      <a class="vwd-book-card"
+         href="${b.buy_link && b.buy_link !== '#' ? b.buy_link : 'https://www.goodreads.com/search?q=' + encodeURIComponent(b.title)}"
+         target="_blank" rel="noopener noreferrer">
+        <div class="vwd-book-title">${b.title}</div>
+        <div class="vwd-book-author">by ${b.author || '—'}</div>
+        <div class="vwd-book-year">${b.published_year || ''}</div>
+        <div class="vwd-book-synopsis">${b.synopsis || ''}</div>
+        <div style="margin-top:10px;color:#ffcc33;font-size:11px;font-family:'Cinzel',serif">🛒 Buy / Find →</div>
+      </a>`).join('');
+  }
+
+  // Cast
+  if (d.cast && d.cast.length) {
+    $('vwd-cast').innerHTML = d.cast.map(c => {
+      const initials   = c.name.split(' ').map(w => w[0]).slice(0, 2).join('');
+      const avatarHTML = c.profile_picture_url
+        ? `<img src="${c.profile_picture_url}" alt="${c.name}"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid #500000;margin-bottom:6px;">
+           <div class="vwd-cast-initials" style="display:none">${initials}</div>`
+        : `<div class="vwd-cast-initials">${initials}</div>`;
+      return `<div class="vwd-cast-card">
+        ${avatarHTML}
+        <div class="vwd-cast-name">${c.name}</div>
+        ${c.character_name ? `<div class="vwd-cast-char">as ${c.character_name}</div>` : ''}
+      </div>`;
+    }).join('');
+    show('vwd-cast-section');
+  }
+
+  // Related
+  if (d.related && d.related.length) {
+    $('vwd-related').innerHTML = d.related.map(r => {
+      const rPoster    = r.poster_url || LOCAL_POSTERS[r.title] || '';
+      const rPosterUrl = rPoster
+        ? (rPoster.startsWith('http') ? rPoster : rPoster.startsWith('../') ? rPoster : '../' + rPoster.replace(/^(\.\.\/|frontend\/|\/frontend\/)/, ''))
+        : '';
+      return `<a class="vwd-rel-card" href="movieinfo.html?title=${encodeURIComponent(r.title)}">
+        <div class="vwd-rel-poster" style="background-image:url('${rPosterUrl}');"></div>
+        <div class="vwd-rel-title">${r.title}</div>
+        ${r.rating_score ? `<div class="vwd-rel-rating">${r.rating_score}</div>` : ''}
+      </a>`;
+    }).join('');
+    show('vwd-related-section');
+  }
+
+  $('vwd-loading').style.display = 'none';
+  $('vwd-root').style.display    = '';
+
+  // Inject comments & ratings section at bottom of vwd-body
+  const body = $('vwd-body');
+  if (body) buildCommentsSection(d.title, body);
+}
+
+async function loadDetailPage() {
+  buildDetailShell();
+  try {
+    const res  = await fetch(`${API}/movie.php?title=${encodeURIComponent(TITLE_PARAM)}`);
+    const data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error);
+    renderDetail(data);
+  } catch (_) {
+    renderDetail({
+      title: TITLE_PARAM,
+      synopsis: null, poster_url: null, banner_url: null,
+      trailer_url: null, genres: [], cast: [], related: [], books: []
+    });
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// SEARCH
+// ─────────────────────────────────────────────────────────────
+function initSearch() {
+  const toggleBtn     = document.getElementById('search-toggle');
+  const overlay       = document.getElementById('search-overlay');
+  const input         = document.getElementById('search-input');
+  const resultsDiv    = document.getElementById('search-results');
+
+  overlay.addEventListener('click', e => e.stopPropagation());
+
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = overlay.style.display === 'block';
+    overlay.style.display = open ? 'none' : 'block';
+    if (!open) input.focus();
+  });
+
+  document.addEventListener('click', () => { overlay.style.display = 'none'; });
+
+  input.addEventListener('input', e => {
+    const query = e.target.value.toLowerCase().trim();
+    resultsDiv.innerHTML = '';
+    if (query.length < 1) return;
+
+    const allMovies = sections.flatMap(s => s.movies);
+    const filtered  = allMovies.filter(m => m.title.toLowerCase().includes(query));
+
+    if (filtered.length === 0) {
+      resultsDiv.innerHTML = `<div style="color:#555;font-family:'Cinzel',serif;padding:20px;">No results found.</div>`;
+      return;
+    }
+
+    filtered.forEach(m => {
+      const card = document.createElement('div');
+      card.className = 'movie-wrapper';
+      card.innerHTML = `
+        <a href="movieinfo.html?title=${encodeURIComponent(m.title)}">
+          <div class="movie-card" style="background-image:url('${m.img}')"></div>
+          <div class="story-title">${m.title}</div>
+        </a>
+      `;
+      resultsDiv.appendChild(card);
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// PROFILE DROPDOWN
+// ─────────────────────────────────────────────────────────────
+function initProfile() {
+  const icon = document.getElementById('profile-img');
+  const menu = document.getElementById('profile-dropdown');
+  if (!icon || !menu) return;
+
+  const saved = localStorage.getItem('vw_active_avatar');
+  if (saved) icon.src = saved;
+
+  icon.addEventListener('click', e => {
+    e.stopPropagation();
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  menu.addEventListener('click', e => e.stopPropagation());
+
+  document.addEventListener('click', () => { menu.style.display = 'none'; });
+}
+
+// ─────────────────────────────────────────────────────────────
+// BELT — VAMPIRE INDUSTRY NEWS
+// ─────────────────────────────────────────────────────────────
+const BELT_NEWS = [
+  {
+    tag: '🎬 Production News',
+    headline: 'Anne Rice Universe Expands with New AMC Spinoff',
+    body: 'AMC has greenlit a third series set in Anne Rice\'s Immortal Universe, following the success of Interview with the Vampire and Mayfair Witches. The untitled project is expected to explore the origins of the Talamasca, the secret society of paranormal investigators that threads through Rice\'s novels.'
+  },
+  {
+    tag: '🧛 Casting',
+    headline: 'A-List Director Attached to Dracula Reimagining at Universal',
+    body: 'Universal Pictures has confirmed a fresh take on Dracula is in active development, with a celebrated horror director reportedly in final talks. The studio describes it as a "grounded, visceral origin story" set in 15th-century Transylvania, departing entirely from previous Universal Monster continuity.'
+  },
+  {
+    tag: '📺 Streaming',
+    headline: 'Netflix\'s "What We Do in the Shadows" Spinoff Gets Series Order',
+    body: 'Netflix has ordered a full series following a single vampire navigating the gig economy in present-day Tokyo. The project shares DNA with the mockumentary format but shifts to a scripted drama-comedy hybrid, with the original creators serving as executive producers.'
+  },
+  {
+    tag: '💰 Box Office',
+    headline: 'Vampire Films Outperform Genre Expectations for Third Straight Year',
+    body: 'Industry analysts note that vampire-themed theatrical releases have consistently outperformed their production budgets by an average of 3.4x over the past three years — a trend not seen since the Twilight era. Streaming pre-sales and international markets are credited as the primary driver of renewed studio interest.'
+  },
+  {
+    tag: '✍️ Development',
+    headline: 'Bram Stoker Estate Partners with Major Studio on "Dracula\'s Guest" Adaptation',
+    body: 'The Bram Stoker Estate has entered into an exclusive partnership to adapt Dracula\'s Guest — the short story widely considered a deleted chapter from the original novel. The project is described as a standalone feature that bridges Stoker\'s original universe with contemporary horror sensibilities.'
+  },
+  {
+    tag: '🏆 Awards',
+    headline: 'Interview with the Vampire Leads Genre Drama at Critics Circle Awards',
+    body: 'AMC\'s Interview with the Vampire swept the genre drama categories at this year\'s Critics Circle Awards, with Jacob Anderson taking Best Actor and the series winning Outstanding Drama. The show\'s second season has been praised for its bold departure from the source material while deepening its emotional core.'
+  },
+  {
+    tag: '🌍 International',
+    headline: 'South Korean Vampire Thriller Sells Out Festival Circuit, Eyes Global Release',
+    body: 'A South Korean vampire film that premiered at Busan International Film Festival has been acquired for global theatrical distribution after a bidding war between three major streaming platforms. Critics have called it the most original take on vampire mythology since Let the Right One In.'
+  },
+  {
+    tag: '🎭 Behind the Scenes',
+    headline: 'Practical Effects Renaissance Sweeping Vampire Productions',
+    body: 'A growing number of vampire productions are returning to practical effects, prosthetics, and in-camera techniques over CGI. Several showrunners cite audience fatigue with digital transformation sequences as the reason, with tactile, physical creature work earning stronger critical responses across the board.'
+  },
+  {
+    tag: '📚 Adaptation Pipeline',
+    headline: 'Guillermo del Toro\'s Vampire Novel "The Strain" Gets Second Adaptation Attempt',
+    body: 'Following the FX series that ran from 2014 to 2017, Guillermo del Toro\'s co-authored novel trilogy The Strain is being developed again — this time as a prestige feature film trilogy. Del Toro is expected to direct at least the first installment, leaning into the book\'s more extreme body-horror elements the TV version softened.'
+  },
+  {
+    tag: '🔮 Trend Watch',
+    headline: 'Vampire Romance Surges in Publishing, Driving New Adaptation Deals',
+    body: 'BookTok and literary agents report vampire romance is the fastest-growing fiction subgenre for the third consecutive quarter. Publishers are fast-tracking acquisitions, and several recently viral titles already have TV and film options attached — industry insiders predict a wave of new vampire adaptations hitting screens within 18 months.'
+  }
+];
+
+let lastBeltIndex = -1;
+
+function initBelt() {
+  const btn = document.getElementById('belt-btn');
+  const card = document.getElementById('belt-card');
+  const tagEl = document.getElementById('belt-tag');
+  const headEl = document.getElementById('belt-headline');
+  const bodyEl = document.getElementById('belt-body');
+
+  if (!btn) {
+    console.error("CRITICAL: 'belt-btn' element not found in HTML!");
+    return;
+  }
+
+  btn.addEventListener('click', () => {
+    console.log("Button clicked. Attempting to update news...");
+
+    // Check if BELT_NEWS exists
+    if (typeof BELT_NEWS === 'undefined') {
+        console.error("CRITICAL: BELT_NEWS array is not defined!");
+        return;
+    }
+
+    let idx = Math.floor(Math.random() * BELT_NEWS.length);
+    const item = BELT_NEWS[idx];
+
+    // Update content directly without complex timeouts to test if it works
+    tagEl.textContent = item.tag;
+    headEl.textContent = item.headline;
+    bodyEl.textContent = item.body;
+    
+    // Force the element to be visible with inline styles as a backup
+    card.classList.add('visible');
+    card.style.display = 'block'; 
+    card.style.maxHeight = '500px';
+    card.style.opacity = '1';
+    
+    console.log("News updated and force-rendered.");
+  });
+}
+// ─────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const home   = document.getElementById('home-sections');
+  const detail = document.getElementById('movie-detail');
+
+  if (IS_DETAIL) {
+    if (home)   home.style.display   = 'none';
+    if (detail) detail.style.display = 'block';
+    loadDetailPage();
+  } else {
+    if (detail) detail.style.display = 'none';
+    if (home)   home.style.display   = 'block';
+    renderSections();
+  }
+
+  initSearch();
+  initProfile();
+  initBelt();
+});
+</script>
+
+<!--
+  backend/api/comments.php  — GET (fetch paginated comments) + POST (insert comment)
+  backend/api/ratings.php   — GET ?action=avg (avg + count) + POST (upsert user rating)
+
+  CREATE TABLE IF NOT EXISTS comments (
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    movie_title  VARCHAR(255) NOT NULL,
+    username     VARCHAR(100) DEFAULT 'Anonymous',
+    avatar_url   VARCHAR(500) DEFAULT NULL,
+    text         TEXT         NOT NULL,
+    rating       TINYINT      DEFAULT NULL,
+    created_at   TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_title (movie_title)
+  );
+
+  CREATE TABLE IF NOT EXISTS user_ratings (
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    movie_title  VARCHAR(255) NOT NULL,
+    username     VARCHAR(100) DEFAULT NULL,
+    rating       TINYINT      NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    created_at   TIMESTAMP    DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_title_user (movie_title, username)
+  );
+-->
+
+</body>
+</html>

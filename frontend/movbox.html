@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Velvet Whispers — Movie Info</title>
+<link rel="icon" type="image/png" href="../VW4.png">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================
+   GLOBAL
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'Roboto', sans-serif;
+    color: #ddd;
+}
+
+/* ===========================
+   HERO BANNER
+=========================== */
+.hero {
+    width: 100%;
+    height: 480px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), #000);
+}
+
+/* ===========================
+   MAIN INFO TEXT
+=========================== */
+.movie-details {
+    padding: 35px;
+    max-width: 800px;
+    margin: auto;
+}
+
+#movie-title {
+    font-family: 'Cinzel', serif;
+    font-size: 50px;
+    color: #ff0018;
+    text-shadow: 0 0 15px #ff0000;
+    margin-bottom: 10px;
+}
+
+#movie-year {
+    font-size: 22px;
+    color: #b30000;
+    margin-bottom: 20px;
+}
+
+#movie-desc {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ===========================
+   SECTION TITLES
+=========================== */
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    margin: 40px 0 15px 35px;
+    color: #ff0028;
+    text-shadow: 0 0 12px #5a0000;
+}
+
+/* ===========================
+   RELATED MOVIES GRID
+=========================== */
+.movie-row {
+    width: calc(100% - 80px);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #000;
+    transition: 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 15px #b30000;
+}
+
+/* ===========================
+   BOOKS SECTION
+=========================== */
+.book-row {
+    width: calc(100% - 80px);
+    margin: auto;
+}
+
+.book-item {
+    background: #0d0d0d;
+    padding: 12px 16px;
+    border-left: 3px solid #ff0018;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.book-item a {
+    color: #ff6680;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.book-item:hover {
+    background: #1a0000;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ===========================
+     HERO BACKDROP
+=========================== -->
+<div class="hero"></div>
+
+<!-- ===========================
+     MOVIE MAIN INFO
+=========================== -->
+<div class="movie-details">
+    <h1 id="movie-title"></h1>
+    <p id="movie-year"></p>
+    <p id="movie-desc"></p>
+</div>
+
+<!-- ===========================
+     RELATED TITLES
+=========================== -->
+<h2>Related Titles</h2>
+<div id="related-box" class="movie-row"></div>
+
+<!-- ===========================
+     BOOKS SECTION
+=========================== -->
+<h2>Books</h2>
+<div id="books-box" class="book-row"></div>
+
+
+<!-- ===========================
+      API CLIENT (INLINE)
+=========================== -->
+<script>
+async function api(path) {
+    const res = await fetch(path);
+    return res.json();
+}
+
+export async function getMovie(title) {
+    return api(`/api/movie.php?title=${encodeURIComponent(title)}`);
+}
+
+export async function getRelated(title) {
+    return api(`/api/related.php?title=${encodeURIComponent(title)}`);
+}
+
+export async function getBooks(title) {
+    return api(`/api/books.php?title=${encodeURIComponent(title)}`);
+}
+</script>
+
+
+<!-- ===========================
+     MAIN MOVIEINFO JS
+=========================== -->
+
+<script type="module">
+import { getMovie, getRelated, getBooks } from "./api/api-client.js";
+
+
+async function loadMoviePage() {
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get("title");
+    if (!title) return;
+
+    const movie = await getMovie(title);
+
+    // Fill text
+    document.getElementById("movie-title").textContent = movie.title;
+    document.getElementById("movie-year").textContent = movie.release_year;
+    document.getElementById("movie-desc").textContent = movie.long_description;
+
+    // Fill hero banner
+    document.querySelector(".hero").style.backgroundImage =
+        `url('${movie.banner_url}')`;
+
+    // Related titles
+    renderRelated(await getRelated(title));
+
+    // Books
+    renderBooks(await getBooks(title));
+}
+
+function renderRelated(items) {
+    const box = document.getElementById("related-box");
+    box.innerHTML = "";
+
+    items.forEach(m => {
+        box.innerHTML += `
+            <div class="movie-card"
+                 style="background-image:url('${m.poster_url}')"
+                 onclick="location.href='movieinfo.html?title=${m.title}'"></div>
+        `;
+    });
+}
+
+function renderBooks(list) {
+    const box = document.getElementById("books-box");
+    box.innerHTML = "";
+
+    list.forEach(b => {
+        box.innerHTML += `
+            <div class="book-item">
+                <a href="${b.link}" target="_blank">${b.title}</a>
+            </div>
+        `;
+    });
+}
+
+loadMoviePage();
+</script>
+
+</body>
+</html>

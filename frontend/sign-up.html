@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelvetWhisp - Sign Up</title>
+    <link rel="stylesheet" href="css/vampire.css">
+    <link rel="icon" type="image/png" href="../Velvet.png">
+    <link rel="icon" type="image/png"
+    href="../VW4.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="background-overlay"></div>
+    <div class="background-image">
+      
+    </div>
+
+    <header class="login-header">
+        <h1 class="logo-text">VelvetWhisp</h1>
+    </header>
+
+    <main class="login-container">
+        <form class="login-form">
+            <h2>Sign Up</h2>
+
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username" required minlength="3" pattern="[a-zA-Z0-9_]+">
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit" class="sign-in-button">Sign Up</button>
+
+            <div class="signup-link" style="margin-top: 50px;">
+                Already have an account? <a href="vampire.html">Sign in now.</a>
+            </div>
+
+        </form>
+    </main>
+
+    <footer class="login-footer">
+    </footer>
+    <script type="module">
+      import { initRegisterForm } from "./js/auth.js";
+      initRegisterForm();
+    </script>
+</body>
+</html>

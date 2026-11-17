@@ -1,0 +1,129 @@
+/* --- COOKIE PREFERENCE MODAL STYLES --- */
+
+.modal-overlay {
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #141414; /* Dark grey background */
+    color: #fff;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.modal-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 2.5em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    display: flex;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.modal-sidebar {
+    flex: 1;
+    border-right: 1px solid #333;
+}
+
+.modal-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-sidebar .tab-link {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s;
+}
+
+.modal-sidebar .tab-link:hover {
+    background-color: #222;
+}
+
+.modal-sidebar .tab-link.active {
+    background-color: #333;
+    border-left: 3px solid #E50914; /* Red accent for active tab */
+    font-weight: bold;
+}
+
+.modal-main {
+    flex: 3;
+    padding-left: 20px;
+}
+
+.modal-main h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4em;
+    margin-top: 0;
+}
+
+.modal-main p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.tab-content {
+    display: none; /* Hide all tabs by default */
+}
+
+.tab-content.active {
+    display: block; /* Show only the active tab */
+}
+
+.modal-footer {
+    padding: 20px;
+    text-align: left;
+    border-top: 1px solid #333;
+}
+
+.save-button {
+    background-color: #E50914;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.save-button:hover {
+    background-color: #f40a1a;
+}

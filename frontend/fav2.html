@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Favorites</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="icon" type="image/png" href="../VW4.png">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0000, #1a0000, #300000, #1a0000, #0a0000);
+      background-size: 400% 400%;
+      animation: crimsonFlow 12s ease-in-out infinite;
+      margin: 0;
+      padding: 20px 0;
+      font-family: 'Cinzel', serif;
+      color: white;
+    }
+
+    @keyframes crimsonFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .page-title {
+      font-size: 38px;
+      color: #ff002a;
+      text-shadow: 0 0 18px #7a0000;
+      margin-left: 50px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .page-title i {
+      margin-left: 10px;
+      color: #ff002a;
+    }
+
+    .empty-msg {
+      color: #ff3355;
+      font-size: 22px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .movie-row {
+      margin: 30px auto;
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .movie-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.25s ease;
+    }
+
+    .movie-wrapper:hover {
+      transform: translateY(-6px);
+    }
+
+    /* CARD (UNCHANGED SIZE) */
+    .movie-card {
+      min-height: 220px;
+      width: 100%;
+      aspect-ratio: 2/3;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #300000;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle overlay for “platform feel” */
+    .movie-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 28px #ff002a;
+    }
+
+    .movie-card:hover::after {
+      opacity: 1;
+    }
+
+    /* INFO BAR (more premium look, same size preserved) */
+    .movie-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(20, 0, 0, 0.75);
+      border: 1px solid rgba(255, 0, 42, 0.25);
+      border-radius: 8px;
+      padding: 6px 14px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #000;
+      width: 100%;
+      max-width: 160px;
+      backdrop-filter: blur(6px);
+    }
+
+    .fav-btn {
+      cursor: pointer;
+      font-size: 20px;
+      transition: 0.25s ease;
+    }
+
+    .fav-btn i {
+      color: #ff3344;
+      transition: 0.3s ease;
+    }
+
+    .fav-btn.active i {
+      color: #ff0000;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    .fav-btn:hover i {
+      transform: scale(1.25);
+    }
+
+    .imdb-block {
+      font-size: 15px;
+      color: #ffcc33;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .imdb-block i {
+      color: gold;
+    }
+
+    /* clickable feel */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+
+<script src="js/paths.js"></script>
+
+<h1 class="page-title">
+  My Favorite Movies and Series <i class="fa-solid fa-heart"></i>
+</h1>
+
+<div id="favourites-container" class="movie-row"></div>
+
+<script>
+const titleToKey = {
+  "Twilight": "twlight",
+  "Legacies": "leg",
+  "The Vampire Diaries": "vamp",
+  "The Originals": "originals",
+  "Nosferatu": "nos",
+  "Tala": "tala",
+  "Dracula": "drac",
+  "Priest": "priest",
+  "From Dusk Till Dawn": "fromdusk",
+  "Morbius": "morb",
+  "Legacies 2": "leg2",
+  "Teen Wolf": "teenw",
+  "Underworld": "underwo",
+  "Zombieland": "zomb",
+  "Night Teeth": "nightt",
+  "Lucifer": "luc",
+  "Castlevania": "castl",
+  "Hemlock Grove": "hem",
+  "True Blood": "tb",
+  "Shadowhunters": "sh",
+  "Van Helsing": "vh",
+  "First Kill": "firsrtkill",
+  "Fate: The Winx Saga": "fate",
+  "What We Do in the Shadows": "wwds",
+  "From": "from",
+  "Midnight Mass": "mm",
+  "The Order": "thorder",
+  "Penny Dreadful": "dreadful",
+  "Vampire Academy": "vampac",
+  "The Strain": "str",
+  "Being Human": "beinghuman",
+  "Blood Ties": "bloodties"
+};
+
+function movie(img, imdb, link = "movieinfo.html") {
+  const src = (typeof assetUrl === "function") ? assetUrl(img) : img;
+  return { img: src, imdb, link };
+}
+
+const allMovies = {
+  twlight: movie("twlight.jpeg", "5.2"),
+  leg: movie("leg.jpeg", "7.3"),
+  vamp: movie("vamp.jpeg", "7.7"),
+  originals: movie("originals.jpeg", "8.2"),
+  nos: movie("nos.jpeg", "8.0"),
+  tala: movie("tala.jpeg", "7.1"),
+  drac: movie("drac.jpeg", "7.4"),
+  priest: movie("priest.jpeg", "5.7"),
+  fromdusk: movie("fromdusk.jpeg", "7.2"),
+  morb: movie("morb.jpeg", "5.1"),
+  leg2: movie("leg2.jpeg", "7.3"),
+  teenw: movie("teenw.jpeg", "7.7"),
+  underwo: movie("underwo.jpeg", "7.0"),
+  zomb: movie("zomb.jpeg", "6.8"),
+  nightt: movie("nightt.jpeg", "7.6"),
+  luc: movie("luc.jpeg", "8.2"),
+  dracdrac: movie("dracdrac.jpeg", "8.5", "dracula_info.html"),
+  castl: movie("castl.jpeg", "8.2", "castlevania_info.html"),
+  hem: movie("hem.jpeg", "7.1", "hemlock_info.html"),
+  tb: movie("tb.jpeg", "7.9", "trueblood_info.html"),
+  sh: movie("sh.jpeg", "6.7", "shadowhunters_info.html"),
+  vh: movie("vh.jpeg", "6.9", "vanhelsing_info.html"),
+  firsrtkill: movie("firsrtkill.jpeg", "6.6", "firstkill_info.html"),
+  fate: movie("fate.jpeg", "6.9", "fatewinxsaga.html"),
+  wwds: movie("wwds.jpeg", "8.5", "whatwedointheshadows_info.html"),
+  from: movie("from.jpeg", "7.7", "from_info.html"),
+  mm: movie("mm.jpeg", "7.4", "midnightmass_info.html"),
+  thorder: movie("thorder.jpeg", "6.8", "theorder.html"),
+  dreadful: movie("dreadful.jpeg", "8.2", "pennydreadful_info.html"),
+  vampac: movie("vampac.jpeg", "6.5", "vampacademy_info.html"),
+  str: movie("str.jpeg", "7.3", "THESTRAIN_info.html"),
+  beinghuman: movie("beinghuman.jpeg", "7.8", "beinghuman_info.html"),
+  bloodties: movie("bloodties.jpeg", "6.6", "bloodties_info.html")
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("favourites-container");
+  let favs = JSON.parse(localStorage.getItem("favourites")) || [];
+
+  if (!favs.length) {
+    container.innerHTML = `<p class="empty-msg">No favorites yet...</p>`;
+    return;
+  }
+
+  favs.forEach(title => {
+    const key = titleToKey[title];
+    const m = allMovies[key];
+    if (!m) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "movie-wrapper";
+    
+    // INTEGRATED LOGIC: Clicking the wrapper navigates to the movie info page
+    wrapper.onclick = () => {
+        window.location.href = `movieinfo.html?title=${encodeURIComponent(title)}`;
+    };
+
+    wrapper.innerHTML = `
+      <div class="movie-card" style="background-image:url('${m.img}')"></div>
+
+      <div class="movie-info-bar">
+        <div class="fav-btn active" data-movie="${title}" onclick="event.stopPropagation()">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+
+        <div class="imdb-block">
+          <i class="fa-solid fa-star"></i> ${m.imdb}
+        </div>
+      </div>
+    `;
+
+    container.appendChild(wrapper);
+  });
+
+  attachFavRemoveHandlers();
+});
+
+function attachFavRemoveHandlers() {
+  document.querySelectorAll(".fav-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const key = btn.dataset.movie;
+      let favs = JSON.parse(localStorage.getItem("favourites")) || [];
+
+      favs = favs.filter(m => m !== key);
+      localStorage.setItem("favourites", JSON.stringify(favs));
+
+      btn.closest(".movie-wrapper").remove();
+
+      if (!favs.length) {
+        document.getElementById("favourites-container").innerHTML =
+          `<p class="empty-msg">No favorites yet...</p>`;
+      }
+    });
+  });
+}
+</script>
+
+</body>
+</html>

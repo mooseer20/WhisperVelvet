@@ -1,0 +1,87 @@
+.static-page-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.static-page-container h2 {
+    font-size: 2.8em;
+    color: #E50914;
+    border-bottom: 2px solid #E50914;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.static-page-container .last-updated {
+    font-size: 0.9em;
+    color: #8c8c8c;
+    text-align: center;
+    margin-bottom: 40px;
+    display: block;
+}
+
+.static-page-container h3.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6em;
+    color: #fff;
+    margin-top: 45px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+}
+
+.static-page-container p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.static-page-container ul {
+    list-style: disc outside;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.static-page-container ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1.0em;
+}
+
+.static-page-container p a,
+.static-page-container ul li a {
+    color: #E50914;
+    text-decoration: underline;
+}
+
+.static-page-container p a:hover,
+.static-page-container ul li a:hover {
+    color: #F40A1A;
+}
+
+.static-page-container a.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: 1px solid #E50914;
+    border-radius: 4px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.static-page-container a.back-link:hover {
+    background-color: #E50914;
+    color: #fff;
+    text-decoration: none;
+}

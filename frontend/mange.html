@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Profiles - Velvet Whisper</title>
+    <link rel="icon" type="image/png" href="../VW4.png">
+    <link rel="stylesheet" href="css/addprof.css">
+    <link rel="stylesheet" href="css/manage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">MANAGE PROFILES</h1>
+
+        <div class="profiles-list-container">
+            <div id="profiles-grid" class="profiles-grid">
+                </div>
+            
+            <button class="add-new-profile-btn" onclick="window.location.href='addprof.html'">
+                <i class="fas fa-plus-circle"></i> ADD PROFILE
+            </button>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn cancel-btn" onclick="window.location.href='whoiswatch.html'">DONE</button>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-delete-modal">&times;</span>
+            <h2 class="modal-title">DELETE PROFILE</h2>
+            <p>Are you sure you want to delete <span id="profile-name-to-delete"></span>?</p>
+            <div class="delete-modal-actions">
+                <button class="btn save-btn" id="confirm-delete-btn">DELETE</button>
+                <button class="btn cancel-btn" id="cancel-delete-btn">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/mange.js"></script> </body>
+</html>

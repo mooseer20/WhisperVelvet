@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Details</title>
+  <link rel="icon" type="image/png" href="../VW4.png">
+</head>
+<body>
+    <style>/* ===== RESET ===== */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        /* ===== BODY ===== */
+        body {
+          background: #0e0e0e;
+          color: #eaeaea;
+          font-family: "Cinzel", serif;
+          line-height: 1.6;
+        }
+        
+        /* ===== TOP BAR ===== */
+        .top-bar {
+          height: 50px;
+          background: #121212;
+          border-bottom: 1px solid #2a2a2a;
+        }
+        
+        /* ===== MAIN CARD ===== */
+        .main-card {
+          max-width: 900px;
+          margin: 60px auto;
+          background: #7a1f1f;
+          border-radius: 14px;
+          overflow: hidden;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.75);
+        }
+        
+        /* ===== BANNER ===== */
+        .banner {
+          height: 280px;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative;
+        }
+        
+        /* Dark gradient overlay */
+        .banner::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.85)
+          );
+        }
+        
+        /* ===== INFO ===== */
+        .info {
+          padding: 32px;
+        }
+        
+        .info h1 {
+          font-size: 2.5rem;
+          margin-bottom: 12px;
+          letter-spacing: 1px;
+        }
+        
+        #meta {
+          font-size: 0.85rem;
+          color: #f1c27d;
+          margin-bottom: 22px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+        
+        #description {
+          font-size: 1.05rem;
+          margin-bottom: 18px;
+          color: #f5f5f5;
+        }
+        
+        #origin {
+          font-size: 0.95rem;
+          color: #ddd;
+          opacity: 0.92;
+        }
+        
+        /* ===== RELATED ===== */
+        .related {
+          max-width: 900px;
+          margin: 40px auto 90px;
+          display: flex;
+          gap: 22px;
+          justify-content: center;
+        }
+        
+        .mini-card {
+          width: 160px;
+          height: 220px;
+          background: #1a1a1a;
+          border-radius: 12px;
+          box-shadow: 0 18px 45px rgba(0,0,0,0.7);
+          cursor: pointer;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .mini-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 28px 65px rgba(0,0,0,0.9);
+        }
+        </style>
+  
+
+        <!-- TOP BAR -->
+        <div class="top-bar"></div>
+        
+        <!-- MAIN CARD -->
+        <div class="main-card">
+        
+          <!-- BANNER / POSTER -->
+          <div class="banner" id="banner"></div>
+        
+          <!-- INFO -->
+          <div class="info">
+            <h1 id="title"></h1>
+            <p id="meta"></p>
+            <p id="description"></p>
+            <p id="origin"></p>
+          </div>
+        
+        </div>
+       
+
+        
+        <!-- RELATED -->
+        <div class="related">
+          <div class="mini-card"></div>
+          <div class="mini-card"></div>
+        </div>
+        
+        <script type="module">
+            import { getByTitle } from "./js/api.js";
+            
+            const params = new URLSearchParams(window.location.search);
+            const typeFromUrl = params.get("type");
+            const title = params.get("title");
+            
+            const data = await getByTitle(typeFromUrl, title);
+            
+            // TITLE
+            document.getElementById("title").innerText = data.title;
+            
+            // TYPE
+            const realType = data.media_type.toLowerCase();
+            document.getElementById("meta").innerText =
+              realType === "movie"
+                ? `Movie • ${data.runtime_minutes} min`
+                : `Series • ${data.seasons_count} season(s) • ${data.episodes_count} episodes`;
+            
+            // DESCRIPTION
+            document.getElementById("description").innerText =
+              data.synopsis || data.long_description || "";
+            
+            // ORIGIN STORY
+            document.getElementById("origin").innerText = data.origin_story || "";
+            
+            // ===== BANNER LOGIC (LOCAL ONLY) =====
+            const banner = document.getElementById("banner");
+            let bannerImage = "default.jpeg";
+            
+            if (data.title === "Dracula") bannerImage = "dracula.jpeg";
+            else if (data.title === "Fate: The Winx Saga") bannerImage = "fate.jpeg";
+            else if (data.title === "The Originals") bannerImage = "originals.jpeg";
+            else if (data.title === "The Vampire Diaries") bannerImage = "vamp.jpeg";
+            else if (data.title === "Legacies") bannerImage = "leg.jpeg";
+            else if (data.title === "Underworld") bannerImage = "undwo.jpeg";
+            else if (data.title === "Van Helsing") bannerImage = "van.jpeg";
+            else if (data.title === "Blade") bannerImage = "blade.jpeg";
+            else if (data.title === "Lucifer") bannerImage = "luc.jpeg";
+            else if (data.title === "Nosferatu") bannerImage = "nos.jpeg";
+            else if (data.title === "Castlevania") bannerImage = "castl.jpeg";
+            else if (data.title === "The Strain") bannerImage = "str.jpeg";
+            else if (data.title === "True Blood") bannerImage = "tb.jpeg";
+            else if (data.title === "Teen Wolf") bannerImage = "teenw.jpeg";
+            else if (data.title === "What We Do in the Shadows") bannerImage = "wwds.jpeg";
+            else if (data.title === "From Dusk Till Dawn") bannerImage = "fromdusk.jpeg";
+            else if (data.title === "Hemlock Grove") bannerImage = "hem.jpeg";
+            else if (data.title === "First Kill") bannerImage = "f.jpeg";
+            else if (data.title === "Shadowhunters") bannerImage = "sh.jpeg";
+            else if (data.title === "Zombies") bannerImage = "zomb.jpeg";
+            else if (data.title === "Interview with the Vampire") bannerImage = "interview.jpeg";
+else if (data.title === "Priest") bannerImage = "priest.jpeg";
+else if (data.title === "Twilight") bannerImage = "twilight.jpeg";
+else if (data.title === "Morbius") bannerImage = "morb.jpeg";
+else if (data.title === "Night Teeth") bannerImage = "nightt.jpeg";
+else if (data.title === "Midnight Mass") bannerImage = "mm.jpeg";
+else if (data.title === "The Order") bannerImage = "order.jpeg";
+else if (data.title === "Penny Dreadful") bannerImage = "dreadful.jpeg";
+else if (data.title === "Vampire Academy") bannerImage = "vampac.jpeg";
+else if (data.title === "Being Human") bannerImage = "beinghuman.jpeg";
+else if (data.title === "Blood Ties") bannerImage = "bloodties.jpeg";
+            
+            // APPLY
+            if (banner) {
+              banner.style.backgroundImage = `url('./${bannerImage}')`;
+            }
+            </script>
+            
+
+</body>
+</html>

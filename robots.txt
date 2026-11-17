@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /frontend/movieinfo.html
+Allow: /frontend/moviess.html
+Allow: /frontend/tvshows.html
+Allow: /frontend/index.html
+
+Disallow: /frontend/vampire.html
+Disallow: /frontend/sign-up.html
+Disallow: /frontend/favourites.html
+Disallow: /frontend/fav2.html
+Disallow: /frontend/whoiswatch.html
+Disallow: /frontend/mange.html
+Disallow: /backend/
+Disallow: /frontend/task#.html
+Disallow: /frontend/task2#.html
+Disallow: /frontend/taskmus.html
+Disallow: /frontend/test.html
+
+Sitemap: https://gentle-kitsune-99e4c1.netlify.app/sitemap.xml

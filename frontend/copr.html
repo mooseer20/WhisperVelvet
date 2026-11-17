@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Preferences - VelvetWhisp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        body.login-body {
+            margin: 0;
+            min-height: 100vh;
+            background: #050505;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Glassmorphism Container */
+        .static-page-container {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 20px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #ff0033;
+            font-size: 2.5rem;
+            margin-top: 0;
+            text-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
+        }
+
+        .section-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            border-left: 3px solid #ff0033;
+            padding-left: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1rem;
+            color: #b3b3b3;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #ff0033;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .login-header {
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            color: #ff002a;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Mobile Tweak */
+        @media (max-width: 600px) {
+            .static-page-container { padding: 20px; }
+            h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body class="login-body">
+
+    <header class="login-header">
+        <h1 class="logo-text">VELVETWHISP</h1>
+    </header>
+
+    <div class="static-page-container">
+        <h2>Cookie Preferences</h2>
+
+        <h3 class="section-title">Our Use of Cookies</h3>
+        <p>VelvetWhisp uses a minimal number of cookies to ensure the basic functionality of the website. These are known as "strictly necessary" cookies and do not store any personally identifiable information.</p>
+        
+        <h3 class="section-title">What are Cookies?</h3>
+        <p>A cookie is a small text file stored on your device that helps a website remember information about your visit. This can make your next visit easier and the site more useful to you.</p>
+
+        <h3 class="section-title">Managing Cookies</h3>
+        <p>As we only use essential cookies, there are no preferences to manage on this site. You can control and/or delete cookies as you wish by adjusting your browser settings. Please note that disabling essential cookies may affect the functionality of this and many other websites that you visit.</p>
+
+        <a href="vampire.html" class="back-link">← Back to Sign In</a>
+    </div>
+
+</body>
+</html>

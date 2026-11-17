@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Favorites</title>
+  <link rel="icon" type="image/png" href="../VW4.png">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-TnIsl8tQGqzOYFjFkDjhfHdhRR6nI8oMZBL+isH0PZ93Rwksr5Y5XXt0X5FWEcTqsunLzU8QOB7l6xJvMxA1nw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="icon" type="image/png" href="../VW4.png">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0000, #1a0000, #300000, #1a0000, #0a0000);
+      background-size: 400% 400%;
+      animation: crimsonFlow 12s ease-in-out infinite;
+      margin: 0;
+      padding: 20px 0;
+      font-family: 'Cinzel', serif;
+    }
+
+    @keyframes crimsonFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .page-title {
+      font-size: 38px;
+      color: #ff002a;
+      text-shadow: 0 0 18px #7a0000;
+      margin-left: 50px;
+      margin-bottom: 10px;
+    }
+
+    .page-title i {
+      color: #ff002a;
+      margin-left: 8px;
+    }
+
+    .empty-msg {
+      color: #ff3355;
+      font-size: 22px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .movie-row {
+      margin: 30px auto;
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .movie-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .movie-card {
+      min-height: 220px;
+      width: 100%;
+      aspect-ratio: 2/3;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #300000;
+      transition: 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #ff002a;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-row { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .movie-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .movie-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .movie-row { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    .movie-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,0,0,0.85);
+      border: 1px solid #300000;
+      border-radius: 6px;
+      padding: 6px 14px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #000;
+      width: 100%;
+      max-width: 160px;
+    }
+
+    .fav-btn {
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .imdb-block {
+      font-size: 15px;
+      color: #ffcc33;
+      text-shadow: 0 0 8px #000;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Icon styling */
+    .movie-info-bar i {
+      font-size: 20px;
+    }
+
+    .fav-btn i {
+      color: #ff3344;
+      transition: 0.3s ease;
+    }
+
+    .fav-btn.active i {
+      color: #ff0000;
+      text-shadow: 0 0 8px #ff0000;
+    }
+
+    .fav-btn:hover i {
+      transform: scale(1.2);
+    }
+
+    .imdb-block i.fa-star {
+      color: gold;
+    }
+  </style>
+</head>
+
+<body>
+<script src="js/paths.js"></script>
+
+  <h1 class="page-title">
+    My Favorite Movies <i class="fa-solid fa-heart"></i>
+  </h1>
+
+  <div id="favourites-container" class="movie-row"></div>
+
+  <script>
+    function movie(img, imdb, link = "movieinfo.html") {
+      const src = (typeof assetUrl === "function") ? assetUrl(img) : img;
+      return { img: src, imdb, link };
+    }
+
+    const allMovies = {
+      "twlight": movie("twlight.jpeg", "5.2"),
+      "leg": movie("leg.jpeg", "7.3"),
+      "vamp": movie("vamp.jpeg", "7.7"),
+      "originals": movie("originals.jpeg", "8.2"),
+
+      "nos": movie("nos.jpeg", "8.0"),
+      "tala": movie("tala.jpeg", "7.1"),
+      "drac": movie("drac.jpeg", "7.4"),
+      "priest": movie("priest.jpeg", "5.7"),
+      "fromdusk": movie("fromdusk.jpeg", "7.2"),
+      "morb": movie("morb.jpeg", "5.1"),
+      "leg2": movie("leg2.jpeg", "7.3"),
+      "teenw": movie("teenw.jpeg", "7.7"),
+      "underwo": movie("underwo.jpeg", "7.0"),
+      "zomb": movie("zomb.jpeg", "6.8"),
+      "nightt": movie("nightt.jpeg", "7.6"),
+      "luc": movie("luc.jpeg", "8.2"),
+
+      "dracdrac": movie("dracdrac.jpeg", "8.5", "dracula_info.html"),
+      "castl": movie("castl.jpeg", "8.2", "castlevania_info.html"),
+      "hem": movie("hem.jpeg", "7.1", "hemlock_info.html"),
+      "tb": movie("tb.jpeg", "7.9", "trueblood_info.html"),
+      "sh": movie("sh.jpeg", "6.7", "shadowhunters_info.html"),
+      "vh": movie("vh.jpeg", "6.9", "vanhelsing_info.html"),
+      "firsrtkill": movie("firsrtkill.jpeg", "6.6", "firstkill_info.html"),
+      "fate": movie("fate.jpeg", "6.9", "fatewinxsaga.html"),
+      "wwds": movie("wwds.jpeg", "8.5", "whatwedointheshadows_info.html"),
+      "from": movie("from.jpeg", "7.7", "from_info.html"),
+      "mm": movie("mm.jpeg", "7.4", "midnightmass_info.html"),
+      "thorder": movie("thorder.jpeg", "6.8", "theorder.html"),
+      "dreadful": movie("dreadful.jpeg", "8.2", "pennydreadful_info.html"),
+      "vampac": movie("vampac.jpeg", "6.5", "vampacademy_info.html"),
+      "str": movie("str.jpeg", "7.3", "THESTRAIN_info.html"),
+      "van": movie("van.jpeg", "6.9", "vanhelsing_info.html"),
+      "beinghuman": movie("beinghuman.jpeg", "7.8", "beinghuman_info.html"),
+      "bloodties": movie("bloodties.jpeg", "6.6", "bloodties_info.html")
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const favs = JSON.parse(localStorage.getItem("favourites")) || [];
+      const container = document.getElementById("favourites-container");
+
+      if (!favs.length) {
+        container.innerHTML = `<p class="empty-msg">No favorites yet...</p>`;
+        return;
+      }
+
+      favs.forEach(id => {
+        const m = allMovies[id];
+        if (!m) return;
+
+        const div = document.createElement("div");
+        div.className = "movie-wrapper";
+
+        div.innerHTML = `
+          <a href="${m.link}">
+            <div class="movie-card" style="background-image:url('${m.img}')"></div>
+          </a>
+          <div class="movie-info-bar">
+            <div class="fav-btn active" data-movie="${id}">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="imdb-block">
+              <i class="fa-solid fa-star"></i> ${m.imdb}
+            </div>
+          </div>
+        `;
+
+        container.appendChild(div);
+      });
+
+      // click heart on favourites page = remove and refresh
+      document.querySelectorAll(".fav-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const movieName = btn.dataset.movie;
+          let favs = JSON.parse(localStorage.getItem("favourites")) || [];
+          favs = favs.filter(m => m !== movieName);
+          localStorage.setItem("favourites", JSON.stringify(favs));
+          location.reload();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+ 

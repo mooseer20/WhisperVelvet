@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movies | Velvet Whispers</title>
+
+<link rel="icon" type="image/png" href="../VW4.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:'Cinzel',serif;
+}
+
+/* HERO */
+
+.hero{
+    min-height:60vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:80px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.95)
+    ),
+    radial-gradient(
+        circle at center,
+        rgba(255,0,42,.25),
+        rgba(0,0,0,.95) 70%
+    );
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero-label{
+    color:#ff002a;
+    letter-spacing:4px;
+    font-size:.9rem;
+    font-weight:bold;
+}
+
+.hero-title{
+    font-size:clamp(3rem,8vw,6rem);
+    margin-top:15px;
+}
+
+.hero-subtitle{
+    margin-top:20px;
+    color:#d0d0d0;
+    line-height:1.8;
+}
+
+.hero-meta{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:25px;
+    color:#999;
+}
+
+/* SECTION */
+
+.section-header{
+    max-width:1400px;
+    margin:auto;
+    padding:40px 30px 20px;
+}
+
+.section-title{
+    font-size:2rem;
+}
+
+/* GRID */
+
+.movies-row{
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fill,minmax(250px,1fr));
+
+    gap:30px;
+
+    padding:0 30px 60px;
+}
+
+/* CARD */
+
+.movie-card{
+    position:relative;
+
+    background:#0a0a0a;
+
+    border-radius:14px;
+    overflow:hidden;
+
+    border:1px solid #1d1d1d;
+
+    cursor:pointer;
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.movie-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 12px 35px rgba(255,0,42,.25);
+}
+
+.movie-poster{
+    width:100%;
+    height:360px;
+
+    background-size:cover;
+    background-position:center;
+
+    transition:transform .5s ease;
+}
+
+.movie-card:hover .movie-poster{
+    transform:scale(1.05);
+}
+
+.movie-details{
+    padding:20px;
+    text-align:center;
+}
+
+.movie-title{
+    font-size:1.3rem;
+    color:white;
+}
+
+.hover-info{
+    opacity:0;
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+    opacity .3s ease,
+    max-height .3s ease;
+
+    color:#ffccaa;
+}
+
+.movie-card:hover .hover-info{
+    opacity:1;
+    max-height:300px;
+    margin-top:12px;
+}
+
+.hover-info p{
+    margin:8px 0;
+}
+
+.card-info{
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    display:flex;
+    gap:10px;
+
+    z-index:10;
+}
+
+.imdb-badge{
+    background:rgba(0,0,0,.8);
+
+    color:#ffcc33;
+
+    padding:5px 10px;
+
+    border-radius:6px;
+
+    font-size:.9rem;
+}
+
+.tagline{
+    color:#ff6688;
+    font-style:italic;
+}
+
+@media(max-width:768px){
+
+    .hero{
+        padding:40px 25px;
+    }
+
+    .hero-title{
+        font-size:3rem;
+    }
+
+    .movies-row{
+        grid-template-columns:
+        repeat(auto-fill,minmax(180px,1fr));
+    }
+
+    .movie-poster{
+        height:280px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            VELVET WHISPERS
+        </div>
+
+        <h1 class="hero-title">
+            Movies
+        </h1>
+
+        <p class="hero-subtitle">
+            Explore vampire legends, supernatural thrillers,
+            gothic horror and dark fantasy films from the
+            Velvet Whispers collection.
+        </p>
+
+        <div class="hero-meta">
+            <span>6 Movies</span>
+            <span>•</span>
+            <span>Horror</span>
+            <span>•</span>
+            <span>Fantasy</span>
+            <span>•</span>
+            <span>Thriller</span>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="section-header">
+    <h2 class="section-title">
+        Browse Collection
+    </h2>
+</div>
+
+<div class="movies-row" id="movies-container"></div>
+
+<script>
+
+// ====================
+// MOVIE FACTORY
+// ====================
+
+function movie(
+    img,
+    imdb,
+    year,
+    runtime,
+    genres,
+    tagline
+){
+    return {
+        img,
+        imdb,
+        year,
+        runtime,
+        genres,
+        tagline
+    };
+}
+
+// ====================
+// MOVIES
+// ====================
+
+const movies = {
+
+    twlight: movie(
+        "../twlight.jpeg",
+        "5.2",
+        2008,
+        "122 min",
+        ["Romance","Fantasy"],
+        "Her blood awakened something ancient."
+    ),
+
+    drac: movie(
+        "../drac.jpeg",
+        "7.4",
+        2014,
+        "92 min",
+        ["Action","Fantasy"],
+        "Every legend has a beginning."
+    ),
+
+    fromdusk: movie(
+        "../fromdusk.jpeg",
+        "7.2",
+        1996,
+        "108 min",
+        ["Horror","Thriller"],
+        "Vampires come out when the sun dies."
+    ),
+
+    dreadful: movie(
+        "../dreadful.jpeg",
+        "8.2",
+        2014,
+        "100 min",
+        ["Dark Fantasy","Drama"],
+        "The monsters within are the most terrifying."
+    ),
+
+    morb: movie(
+        "../morb.jpeg",
+        "5.1",
+        2022,
+        "104 min",
+        ["Action","Sci-Fi"],
+        "The line between hero and monster fades."
+    ),
+
+    mm: movie(
+        "../mm.jpeg",
+        "7.4",
+        2021,
+        "101 min",
+        ["Horror","Mystery"],
+        "A small town hides a sacred secret."
+    )
+
+};
+
+// ====================
+// TITLES
+// ====================
+
+const movieTitles = {
+
+    twlight: "Twilight",
+    drac: "Dracula Untold",
+    fromdusk: "From Dusk Till Dawn",
+    dreadful: "Penny Dreadful",
+    morb: "Morbius",
+    mm: "Midnight Mass"
+
+};
+
+// ====================
+// RENDER
+// ====================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const container =
+        document.getElementById("movies-container");
+
+    Object.entries(movies).forEach(([id,m]) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "movie-card";
+
+        card.addEventListener("click", () => {
+
+            window.location.href =
+                `movieinfo.html?title=${encodeURIComponent(movieTitles[id])}`;
+
+        });
+
+        card.innerHTML = `
+
+            <div class="card-info">
+
+                <div class="imdb-badge">
+                    ⭐ ${m.imdb}
+                </div>
+
+            </div>
+
+            <div
+                class="movie-poster"
+                style="background-image:url('${m.img}')">
+            </div>
+
+            <div class="movie-details">
+
+                <div class="movie-title">
+                    ${movieTitles[id]}
+                </div>
+
+                <div class="hover-info">
+
+                    <p>
+                        📅 ${m.year}
+                    </p>
+
+                    <p>
+                        ⏱ ${m.runtime}
+                    </p>
+
+                    <p>
+                        ${m.genres.join(" • ")}
+                    </p>
+
+                    <p class="tagline">
+                        "${m.tagline}"
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```

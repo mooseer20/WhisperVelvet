@@ -1,0 +1,15 @@
+# Copy of docs/.htaccess for Apache document root
+RewriteEngine On
+
+DirectoryIndex index.html
+
+RewriteRule ^api/(.*)$ backend/api/$1 [L,QSA]
+RewriteRule ^auth/(.*)$ backend/auth/$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9_-]+\.html)$ frontend/$1 [L]
+
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>

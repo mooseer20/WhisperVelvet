@@ -1,0 +1,704 @@
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #f0f0f0;
+    background-color: #000;
+    min-height: 100vh;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    overflow-x: hidden;
+}
+
+ .background-image {
+   position: fixed;
+   top: 0;
+    left: 0;    
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0.6;
+    filter : brightness(0.7) blur(3px) ;
+    transition: opacity 1s ease-in-out;
+}
+.login-body .background-image {
+    background-image: url(../../back3.png);
+    opacity:  1 ;
+    filter : brightness(0.7) blur(0px) ;
+
+}
+.landing-body .background-image {
+    animation: background-slideshow 60s infinite;
+
+    opacity:  0.6 ;
+    filter : brightness(1.3) blur(0px) ;
+}
+
+@keyframes background-slideshow {
+    0% { background-image: url('../../leg.jpeg'); }
+    16.66% { background-image: url('../../vamp.jpeg'); } 
+    16.67% { background-image: url('../../originals.jpeg'); }
+    33.33% { background-image: url('../../twlight.jpeg'); } 
+    33.34% { background-image: url('../../BLADE.jpeg'); }
+    50% { background-image: url('../../int.jpeg'); }
+    50.01% { background-image: url('../../dusk.jpeg'); }
+    66.66% { background-image: url('../../drac.jpeg'); } 
+    66.67% { background-image: url('../../underwo.jpeg'); }
+    83.33% { background-image: url('../../vamp.jpeg'); } 
+    83.34% { background-image: url('../../originals.jpeg'); }
+    100% { background-image: url('../../vamp.jpeg') ; } 
+}
+.landing-body .background-image:hover {
+    opacity: 1;
+    filter: brightness(1) blur(0px) ;
+}
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: -1;}
+
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.login-header {
+    background: transparent !important;
+    background-color: transparent;
+    position:  absolute;
+    top : 20px ;
+    left : 40px ;
+    z-index: 10;
+    text-align : center ;
+    padding : 20px 0 ;
+
+    background-color : #000 ;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 10;
+}
+.logo-image {
+    width:  280px ;
+    height: auto;
+    display: block;
+    margin : 0 ;}
+
+.logo-text {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    color: #E50914;
+    margin: 0;
+    text-shadow: -0 0 10px  rgba(229, 9, 20, 0.7);
+    letter-spacing:  3px ;
+    padding : 0 ;
+    text-transform : uppercase; 
+
+} 
+.logo-text:hover {
+    color : #ff4d5a ;
+    text-shadow: -1px -1px 0 #5f1418 ,
+    1px -1px 0 #5f1418,
+    -1px 1px 0 #5f1418,
+    1px 1px 0 #5f1418,
+    0 0 15ox rgba (255 , 0 ,0 ,1); }
+ 
+
+.login-container {
+    z-index: 1;
+    padding: 20px;
+    max-width: 450px;
+    width: 90%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.login-form {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 68px 40px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+    color: #8c8c8c;
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #454545;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.5);
+}
+
+.sign-in-button {
+    background-color: #E50914;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover {
+    background-color: #F40A1A;
+}
+
+.form-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #b3b3b3;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #b3b3b3;
+    background-color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"]:checked {
+    background-color: #E50914;
+    border-color: #E50914;
+}
+
+.remember-me input[type="checkbox"]:checked::before {
+    content: '\2713';
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 16px;
+}
+
+.need-help {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.need-help:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.facebook-login {
+    color: #8c8c8c;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.facebook-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    filter: invert(0.6);
+}
+
+.facebook-login:hover {
+    text-decoration: underline;
+}
+
+.signup-link {
+    color: #8c8c8c;
+    font-size: 1em;
+    margin-top: 16px;
+}
+
+.signup-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+.login-footer {
+    position : relative ; 
+    z-index : 1 ;
+    width : 100% ;
+    background-color : rgba(0, 0, 0, 0.8) ;
+    padding:  30px  40px ;
+    margin-top: auto ;
+    color: #8c8c8c;
+    font-size:0.9em;
+    box-sizing: border-box;
+    text-align: left; }
+
+    .footer-content {
+        max-width:  980px;
+        margin : 0 auto; }
+
+        .login-footer p {
+            margin-bottom : 20px;
+            font-size : lem ;}
+
+            .footer-link {
+                color : #8c8c8c ;
+                text-decoration: none;
+                margin-right :15 px ;
+                margin-bottom:  10px;
+                display:  inline-block; }
+
+                .footer-link:hover {
+                    text-decoration: underline; }
+
+                    .footer-links-grid {
+                        display:  grid;
+                        grid-template-columns : repeat(2 , 1fr) ;
+                        gap :15 px ;
+                        margin-bottom:  30px; }
+
+                        .copyright {
+                            margin-top :
+                             30px ;
+                             font-size : 0.8em ;}
+
+          @media (min-width: 768px) {
+          .footer-links-grid {
+        grid-template-columns: repeat(4, 1fr);   }    }
+
+@media (max-width: 768px) {
+    .login-form {
+        padding: 40px 30px 30px;
+    }
+    .login-header {
+        left: 20px;
+    }
+    .logo-image {
+        width : 180px ;}
+            .logo-text {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px 20px 20px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    .login-container {
+        width: 95%;
+    }
+    .logo-image{
+        width : 140 px ;}
+        .login-header {
+            left: 20px ; }
+            .login-footer {
+                padding : 20px ;}
+                .footer-links-grid {
+                    grid-template-columns:  repeat(1, 1fr); text-align: center;
+                    .footer-link {margin : 5px 0 ;}
+                    .login-footer p, .copyright {
+                        text-align : center ; }}
+
+    .logo-text {
+        font-size: 1.8em;
+    }
+}
+/* --- COOKIE PREFERENCE MODAL STYLES --- */
+
+.modal-overlay {
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #141414; /* Dark grey background */
+    color: #fff;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.modal-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 2.5em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    display: flex;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.modal-sidebar {
+    flex: 1;
+    border-right: 1px solid #333;
+}
+
+.modal-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-sidebar .tab-link {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s;
+}
+
+.modal-sidebar .tab-link:hover {
+    background-color: #222;
+}
+
+.modal-sidebar .tab-link.active {
+    background-color: #333;
+    border-left: 3px solid #E50914; /* Red accent for active tab */
+    font-weight: bold;
+}
+
+.modal-main {
+    flex: 3;
+    padding-left: 20px;
+}
+
+.modal-main h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4em;
+    margin-top: 0;
+}
+
+.modal-main p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.tab-content {
+    display: none; /* Hide all tabs by default */
+}
+
+.tab-content.active {
+    display: block; /* Show only the active tab */
+}
+
+.modal-footer {
+    padding: 20px;
+    text-align: left;
+    border-top: 1px solid #333;
+}
+
+.save-button {
+    background-color: #E50914;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.save-button:hover {
+    background-color: #f40a1a;
+}
+
+
+.landing-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.landing-header .logo-text {
+    margin: 0; 
+}
+
+.signin-btn-header {
+    background-color: #E50914;
+    color: #fff;
+    padding: 8px 17px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.signin-btn-header:hover {
+    background-color: #f40a1a;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 4.5em;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    margin: 0 0 20px 0;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #E50914;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border-radius: 4px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f40a1a;
+}
+
+
+
+@media (max-width: 768px) {
+    .landing-header {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .hero-content .subtitle {
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        font-size: 1.2em;
+        padding: 12px 25px;
+    }
+}
+
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.profile-container {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.profile-title {
+    font-family: 'Creepster', cursive;
+    font-size: 4rem;
+    color: #AA0000;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+}
+
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    background-color: #222;
+    border: 4px solid #222;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.profile-card:hover {
+    color: #E0E0E0;
+    transform: scale(1.05);
+}
+
+.profile-card:hover .profile-avatar {
+    border-color: #AA0000;
+    box-shadow: 0 0 15px rgba(170, 0, 0, 0.7);
+}
+
+.add-new .profile-avatar {
+    font-size: 5rem;
+    color: #555;
+}
+
+.add-new:hover .profile-avatar{
+    background-color: #333;
+    color: #E0E0E0;
+}
+
+.manage-profiles-btn {
+    background-color: transparent;
+    border: 2px solid #555;
+    color: #777;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.manage-profiles-btn:hover {
+    background-color: #AA0000;
+    border-color: #AA0000;
+    color: #FFF;
+    box-shadow: 0 0 10px rgba(170, 0, 0, 0.7);
+}

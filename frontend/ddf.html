@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Whispers UI - Minimalist</title>
+    <style>
+        /* Define your 2026 Minimalist tokens */
+        :root {
+            --bg-base: #FFFFFF; /* Pure white background */
+            --text-primary: #3B2E24; /* Soft Deep Brown */
+            --blue-soft: #D4EBF9; /* Translucent, Soft Sky Blue */
+            --brown-soft: #E0D3C7; /* Translucent, Creamy Brown */
+            --accent-glow: #F9E7D4; /* Soft glow for hover states */
+            --font-main: 'Segoe UI', Roboto, sans-serif;
+            --grid-gap: 25px;
+            --card-radius: 20px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-base);
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .phone-frame {
+            width: 375px; /* Standard phone width */
+            height: 812px; /* Standard phone height */
+            background-color: #FFFFFF;
+            border: 15px solid #1a1a1a; /* Thin black frame for the device */
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 50px 30px; /* Internal phone padding */
+            position: relative;
+        }
+
+        /* Title Stylization */
+        .app-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            margin-bottom: 50px;
+        }
+
+        .watching-title {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text-primary);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        /* Profile Grid Logic */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--grid-gap);
+        }
+
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px); /* Gentle float on hover */
+            filter: brightness(1.05); /* Soft highlight */
+        }
+
+        /* The Profile Avatar 'Cards' from your UX */
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--card-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        /* Avatar Faces: A simplified, minimalist implementation */
+        .avatar::before, .avatar::after {
+            content: '';
+            position: absolute;
+            background-color: #FFFFFF; /* White face details */
+            border-radius: 50%;
+        }
+
+        /* Default Face (Smiling) from your UX Row 1 */
+        .avatar.soft-blue::before { width: 8px; height: 8px; top: 25px; left: 22px; }
+        .avatar.soft-blue::after { width: 8px; height: 8px; top: 25px; right: 22px; }
+        .avatar.soft-blue .smile {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            border-bottom: 2px solid #FFFFFF;
+            border-radius: 0 0 10px 10px;
+            top: 40px;
+        }
+
+        /* Complex Faces (User 5, Daemon) from your UX Row 2 */
+        .avatar.complex::before { width: 6px; height: 6px; top: 25px; left: 24px; opacity: 0.8;}
+        .avatar.complex::after { width: 6px; height: 6px; top: 25px; right: 24px; opacity: 0.8;}
+        .avatar.complex .nose-bridge {
+            position: absolute;
+            width: 2px;
+            height: 12px;
+            background-color: #FFFFFF;
+            top: 28px;
+            opacity: 0.5;
+        }
+
+        /* Apply the specific UX Colors to Avatars */
+        .blue-avatar { background-color: #D4EBF9; } /* Aegon, Brian, Simon */
+        .brown-avatar { background-color: #E0D3C7; } /* User 5, Daemon */
+        .magenta-avatar { background-color: #E8B4C9; } /* Merj, Guest - using a muted, soft magenta for minimalism */
+
+        /* Add Profile - The Specific Action from your UX */
+        .avatar.add-profile {
+            background-color: transparent;
+            border: 2px dashed #B8B8B8; /* Muted, soft grey border */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .avatar.add-profile .plus-icon {
+            font-size: 30px;
+            font-weight: 300;
+            color: #8B7A6A; /* Soft, warm grey for the '+' */
+        }
+
+        .avatar.add-profile::before, .avatar.add-profile::after { display: none; } /* Clear face from 'Add' */
+
+        /* Profile Names: Direct mapping from your UX */
+        .profile-name {
+            font-size: 11px;
+            font-weight: 500;
+            color: #7D7267; /* Soft grey-brown for labels */
+            margin-top: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="app-name">Velvet Whispers</div>

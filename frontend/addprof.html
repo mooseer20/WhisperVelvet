@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Profile - Velvet Whisper</title>
+    <link rel="icon" type="image/png" href="../VW4.png">
+    <link rel="stylesheet" href="css/addprof.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div class="container">
+        <h1 class="page-title">ADD NEW PROFILE</h1>
+
+        <div class="profile-form-area">
+            <div class="profile-avatar-selection">
+                <div class="avatar-preview" id="current-avatar-preview">
+                    <img src="defav.jpeg" alt="Default Avatar" id="current-avatar-img">
+                </div>
+                <button class="select-avatar-btn" id="choose-avatar-btn">Choose Avatar</button>
+            </div>
+
+            <div class="profile-name-input">
+                <label for="profileName">Profile Name:</label>
+                <input type="text" id="profileName" placeholder="Enter name">
+            </div>
+
+            <div class="form-actions">
+                <button class="btn save-btn" id="save-profile-btn">Save Profile</button>
+                <button class="btn cancel-btn" onclick="window.location.href='whoiswatch.html'">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="avatar-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-avatar-modal">&times;</span>
+            <h2 class="modal-title">Select an Avatar</h2>
+            <div class="avatar-grid" id="avatar-grid">
+                </div>
+            </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
