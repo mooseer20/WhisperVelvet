@@ -1,0 +1,36 @@
+---
+id: ac6bf812-836e-4dfe-8add-09459994f634
+---
+sequenceDiagram
+    actor User as Օգտատեր
+    participant Web as Daemon-ի վեբ էջ
+    participant API as Զրույցի API
+    participant MCP as MCP սերվեր
+    participant DB as PostgreSQL
+    participant Model as Ollama՝ Qwen3:4b
+
+    User->>Web: Մուտքագրում է հարցը
+    Note over User,Web: Հարցը կարող է լինել հայերեն գրերով կամ լատինատառ հայերենով
+
+    Web->>API: POST /chat՝ հարցով և զրույցի պատմությամբ
+    API->>MCP: Հարցնում է հասանելի MCP գործիքները
+    MCP-->>API: Վերադարձնում է գործիքների ցանկը
+
+    Note over API,MCP: search_titles<br/>recommend_by_mood<br/>get_title_details
+
+    API->>Model: Փոխանցում է հարցը, պատմությունը,<br/>հայերեն պատասխանի հրահանգն ու գործիքները
+    Model-->>API: Վերադարձնում է պատասխան կամ գործիքի կանչ
+
+    alt Կատալոգային տվյալ է պետք
+        API->>MCP: Կանչում է ընտրված MCP գործիքը
+        MCP->>DB: Կատարում է ընթերցման հարցում
+        DB-->>MCP: Վերադարձնում է կատալոգի տվյալները
+        MCP-->>API: Փոխանցում է գործիքի արդյունքը
+        API->>Model: Արդյունքը փոխանցում է պատասխան ձևակերպելու համար
+        Model-->>API: Վերադարձնում է պատասխանը հայերենով
+    else Կատալոգային տվյալ պետք չէ
+        Model-->>API: Վերադարձնում է հայերեն պատասխանը
+    end
+
+    API-->>Web: Վերադարձնում է պատասխանը JSON ձևաչափով
+    Web-->>User: Ցուցադրում է պատասխանը

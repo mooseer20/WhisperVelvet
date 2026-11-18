@@ -1,0 +1,17 @@
+flowchart LR
+    U["Օգտատեր<br/>հայերեն կամ լատինատառ հայերեն"] -->|Հարց և զրույցի պատմություն| WEB["Daemon-ի վեբ էջ<br/>frontend/daemon.html<br/>պատմությունը պահվում է localStorage-ում"]
+
+    WEB -->|HTTP POST /chat<br/>127.0.0.1:8000| API["Զրույցի API<br/>daemon/chat_api.py"]
+
+    API -->|HTTP հարցում /api/chat<br/>127.0.0.1:11434| OLLAMA["Ollama<br/>տեղային լեզվային մոդել<br/>Qwen3:4b"]
+
+    API -->|MCP կապ<br/>127.0.0.1:8001/mcp| MCP["MCP սերվեր<br/>daemon/server.py"]
+
+    MCP -->|Միայն ընթերցման հարցումներ| DB[("PostgreSQL<br/>ֆիլմերի և սերիալների կատալոգ")]
+
+    DB -->|Վերնագրեր, ժանրեր և նկարագրություններ| MCP
+    MCP -->|Գործիքների արդյունքներ| API
+    API -->|Պատասխան՝ հայերեն գրերով| WEB
+    WEB --> U
+
+    API -.->|Հայերեն պատասխանի հրահանգ<br/>տրանսկրիպցիայի ճանաչում| OLLAMA

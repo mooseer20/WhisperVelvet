@@ -6,7 +6,7 @@ function movie(img, imdb, link = "movieinfo.html") {
 const allMovies = {
 
     "twlight": movie(
-        "../twlight.jpeg",
+        "assets/images/twlight.jpeg",
         "5.2",
         2008,
         "122 min",
@@ -15,7 +15,7 @@ const allMovies = {
     ),
 
     "vamp": movie(
-        "../vamp.jpeg",
+        "assets/images/vamp.jpeg",
         "7.7",
         2009,
         "44 min",
@@ -24,7 +24,7 @@ const allMovies = {
     ),
 
     "originals": movie(
-        "../originals.jpeg",
+        "assets/images/originals.jpeg",
         "8.2",
         2013,
         "45 min",
@@ -33,7 +33,7 @@ const allMovies = {
     ),
 
     "beinghuman": movie(
-        "../beinghuman.jpeg",
+        "assets/images/beinghuman.jpeg",
         "7.8",
         2011,
         "60 min",
@@ -42,7 +42,7 @@ const allMovies = {
     ),
 
     "bloodties": movie(
-        "../bloodties.jpeg",
+        "assets/images/bloodties.jpeg",
         "6.6",
         2007,
         "43 min",

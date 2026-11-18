@@ -1,0 +1,560 @@
+
+Bella Cullen.jpeg
+  -> NO DIRECT REFERENCE
+
+Bridgerton, Outlander… seriale de epoca de devorat pe Netflix (1).jpeg
+  -> NO DIRECT REFERENCE
+
+Edward Cullen.jpeg
+  -> NO DIRECT REFERENCE
+
+IMAGE 2026-04-09 02:44:52.jpg
+  -> NO DIRECT REFERENCE
+
+IMAGE 2026-04-09 02:53:14.jpg
+  -> NO DIRECT REFERENCE
+
+IMAGE 2026-04-09 02:53:17.jpg
+  -> NO DIRECT REFERENCE
+
+Jacob Anderson.jpeg
+  -> NO DIRECT REFERENCE
+
+Landon Kirby✨.jpeg
+  -> NO DIRECT REFERENCE
+
+Morbius.jpeg
+  -> NO DIRECT REFERENCE
+
+The Louvre (1).jpeg
+  -> frontend/taskmus.html
+
+The Strain_.jpeg
+  -> NO DIRECT REFERENCE
+
+VW.png
+  -> frontend/vampire.html
+
+VW2.png
+  -> NO DIRECT REFERENCE
+
+VW4.png
+  -> frontend/addprof.html
+  -> frontend/coin.html
+  -> frontend/details.html
+  -> frontend/faq.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/help.html
+  -> frontend/help2.html
+  -> frontend/mange.html
+  -> frontend/movbox.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+  -> frontend/privacy.html
+  -> frontend/sign-up.html
+  -> frontend/term.html
+  -> frontend/vampire.html
+  -> frontend/whoiswatch.html
+
+backgr.png
+  -> NO DIRECT REFERENCE
+
+backimg.png
+  -> NO DIRECT REFERENCE
+
+backimg2.png
+  -> NO DIRECT REFERENCE
+
+backk.png
+  -> NO DIRECT REFERENCE
+
+beinghuman.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/js/movies-database.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+bella.jpeg
+  -> frontend/js/script.js
+
+bg.jpg
+  -> NO DIRECT REFERENCE
+
+blade icon.jpeg
+  -> NO DIRECT REFERENCE
+
+blade.jpeg
+  -> frontend/details.html
+  -> frontend/js/script.js
+  -> frontend/movieinfo.html
+
+bloodties.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/js/movies-database.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+brit.jpeg
+  -> frontend/taskmus.html
+
+carlsie.jpeg
+  -> frontend/js/script.js
+  -> frontend/task#.html
+
+castl.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+damon.jpeg
+  -> NO DIRECT REFERENCE
+
+defav.jpeg
+  -> frontend/addprof.html
+  -> frontend/js/script.js
+
+drac.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+dracdrac.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+dracula.jpeg
+  -> frontend/details.html
+  -> frontend/js/script.js
+
+dreadful.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+dusk.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+  -> frontend/tvshows.html
+
+edward.jpeg
+  -> frontend/js/script.js
+
+ejlah.jpeg
+  -> frontend/js/script.js
+
+fate.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+fears.jpeg
+  -> NO DIRECT REFERENCE
+
+firsrtkill.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+from.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+fromdusk.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+
+haylel.jpeg
+  -> frontend/js/script.js
+
+hayley marshall icon.jpeg
+  -> NO DIRECT REFERENCE
+
+hem.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+hope.jpeg
+  -> NO DIRECT REFERENCE
+
+int.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/index.html
+  -> frontend/tvshows.html
+
+jacob.jpeg
+  -> frontend/js/script.js
+
+jane.jpeg
+  -> frontend/js/script.js
+
+jasper.jpeg
+  -> frontend/task2#.html
+
+klaus.jpeg
+  -> frontend/js/script.js
+
+kol.jpeg
+  -> frontend/js/script.js
+
+landon.jpeg
+  -> frontend/js/script.js
+
+leg.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+leg2.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+luc.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+matt.jpeg
+  -> NO DIRECT REFERENCE
+
+metro.jpeg
+  -> frontend/taskmus.html
+
+mm.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+  -> frontend/test.html
+
+morb.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+
+n1.jpeg
+  -> frontend/movieinfo.html
+
+n2 .jpeg
+  -> NO DIRECT REFERENCE
+
+n3.jpeg
+  -> frontend/movieinfo.html
+
+n4.jpeg
+  -> frontend/movieinfo.html
+
+n5.jpeg
+  -> frontend/movieinfo.html
+
+n6.jpeg
+  -> frontend/movieinfo.html
+
+n7.jpeg
+  -> NO DIRECT REFERENCE
+
+n8.jpeg
+  -> frontend/movieinfo.html
+
+nightt.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+nos.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+originals.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/js/movies-database.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+priest.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+prpic.jpeg
+  -> frontend/whoiswatch.html
+
+prpic2.jpeg
+  -> frontend/whoiswatch.html
+
+prpic3.jpeg
+  -> frontend/whoiswatch.html
+
+prpic4.jpeg
+  -> frontend/movieinfo.html
+  -> frontend/whoiswatch.html
+
+prpic5.jpeg
+  -> NO DIRECT REFERENCE
+
+s2 elijah mikaelson.jpeg
+  -> NO DIRECT REFERENCE
+
+sh.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+str.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+tala.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+tb.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+teenw.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+
+thevamp.jpeg
+  -> NO DIRECT REFERENCE
+
+thorder.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+twlight.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/js/movies-database.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/moviess.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+underwo.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/tvshows.html
+
+undwo.jpeg
+  -> frontend/details.html
+
+vamp.jpeg
+  -> frontend/css/vampire.css
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/index.html
+  -> frontend/js/favourites.js
+  -> frontend/js/movies-database.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+vampac.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+van.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/test.html
+
+vh.jpeg
+  -> frontend/database.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+
+wwds.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
+  -> frontend/test.html
+  -> frontend/tvshows.html
+
+zomb.jpeg
+  -> frontend/database.html
+  -> frontend/details.html
+  -> frontend/fav2.html
+  -> frontend/favourites.html
+  -> frontend/js/favourites.js
+  -> frontend/movieinfo.html
+  -> frontend/movies.html
