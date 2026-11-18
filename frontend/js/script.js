@@ -43,22 +43,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const avatarData = [
-        { path: '../ejlah.jpeg', name: 'Elliah' },
-        { path: '../haylel.jpeg', name: 'Hayley' },
-        { path: '../landon.jpeg', name: 'Landon' },
-        { path: '../dracula.jpeg', name: 'Dracula' },
-        { path: '../jacob.jpeg', name: 'Jacob' },
-        { path: '../bella.jpeg', name: 'Bella' },
-        { path: '../edward.jpeg', name: 'Edward' },
-        { path: '../blade.jpeg', name: 'Blade' },
-        { path: '../carlsie.jpeg', name: 'Carlsie' },
-        { path: '../jane.jpeg', name: 'Jane' },
-        { path: '../kol.jpeg', name: 'Kol' },
-        { path: '../klaus.jpeg', name: 'Klaus' },
+        { path: 'assets/images/ejlah.jpeg', name: 'Elliah' },
+        { path: 'assets/images/haylel.jpeg', name: 'Hayley' },
+        { path: 'assets/images/landon.jpeg', name: 'Landon' },
+        { path: 'assets/images/dracula.jpeg', name: 'Dracula' },
+        { path: 'assets/images/jacob.jpeg', name: 'Jacob' },
+        { path: 'assets/images/bella.jpeg', name: 'Bella' },
+        { path: 'assets/images/edward.jpeg', name: 'Edward' },
+        { path: 'assets/images/blade.jpeg', name: 'Blade' },
+        { path: 'assets/images/carlsie.jpeg', name: 'Carlsie' },
+        { path: 'assets/images/jane.jpeg', name: 'Jane' },
+        { path: 'assets/images/kol.jpeg', name: 'Kol' },
+        { path: 'assets/images/klaus.jpeg', name: 'Klaus' },
     ];
 
     let selectedAvatar = {
-        path: '../defav.jpeg',
+        path: 'assets/images/defav.jpeg',
         name: 'Default Avatar'
     };
 

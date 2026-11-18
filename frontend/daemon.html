@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10070b">
+  <title>Դեյմոն | Velvet Whispers</title>
+  <link rel="icon" type="image/png" href="assets/images/vw4.png">
+  <script>if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('daemon-embed');</script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500;600&family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --wine:#761c34; --rose:#c77786; --gold:#c9a56a; --ink:#10070b; --panel:#1a1015; --muted:#b9aeb2; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:#f7eef0; font:15px 'Noto Sans Armenian',Montserrat,sans-serif; background:radial-gradient(ellipse at 50% 0,#32131f 0,transparent 55%),linear-gradient(145deg,#10070b,#080608 70%); }
+    a { color:inherit; text-decoration:none; }
+    .topbar { height:72px; padding:0 clamp(18px,5vw,64px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #ffffff16; background:#0c080be8; }
+    .brand { font:700 19px Cinzel,serif; letter-spacing:.12em; color:#e4c4a0; }
+    .back { color:var(--muted); font-size:13px; } .back:hover { color:#fff; }
+    main { width:min(920px,calc(100% - 32px)); margin:clamp(30px,7vh,72px) auto 40px; }
+    .intro { text-align:center; margin-bottom:28px; }
+    .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:600; }
+    h1 { font:600 clamp(30px,5vw,48px) 'Noto Sans Armenian',Cinzel,serif; margin:10px 0; }
+    .intro p { color:var(--muted); margin:0; font-size:14px; line-height:1.8; }
+    .chat { border:1px solid #ffffff18; border-radius:18px; overflow:hidden; background:#130d11eF; box-shadow:0 24px 80px #0009,0 0 50px #6b183222; }
+    .chat-head { display:flex; justify-content:space-between; align-items:center; padding:17px 22px; background:#ffffff05; border-bottom:1px solid #ffffff12; }
+    .daemon-profile { display:flex; align-items:center; gap:12px; }
+    .daemon-avatar { width:42px; height:42px; flex:0 0 42px; position:relative; border-radius:50%; overflow:hidden; display:grid; place-items:center; background:#211019; border:1px solid #c77b8666; box-shadow:0 0 16px #b21f4933; }
+    .daemon-avatar img { width:100%; height:100%; object-fit:contain; transform:scale(1.05); filter:drop-shadow(0 0 5px #d12454aa); }
+    .daemon-avatar::after { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(145deg,#a7143438,transparent 55%,#15050b76); pointer-events:none; }
+    .avatar-bat { position:absolute; z-index:1; right:-3px; bottom:-3px; font-size:13px; filter:drop-shadow(0 1px 3px #000); }
+    .daemon-profile strong { display:block; color:#f4e6df; font:700 15px Cinzel,serif; letter-spacing:.035em; text-shadow:0 1px 0 #b47a77, 0 2px 0 #612336, 0 4px 8px #000, 0 0 12px #b72b4b66; transform:perspective(140px) rotateX(4deg); transform-origin:left center; }
+    .daemon-profile small { color:var(--muted); font-size:11px; }
+    .status { color:#c7a56d; font-size:11px; display:flex; gap:7px; align-items:center; }
+    .dot { width:7px;height:7px;border-radius:50%;background:#8a6a47; }
+    .messages { min-height:330px; max-height:52vh; overflow-y:auto; padding:24px clamp(16px,4vw,34px); display:flex; flex-direction:column; gap:17px; }
+    .message { max-width:min(78%,620px); padding:14px 16px; border-radius:14px; line-height:1.8; font-size:13px; white-space:pre-wrap; }
+    .from-daemon { align-self:flex-start; background:#24151c; border:1px solid #ffffff12; border-top-left-radius:4px; }
+    .from-user { align-self:flex-end; background:#572032; border:1px solid #b75c6d55; border-top-right-radius:4px; }
+    .welcome { color:#e6d8d9; }
+    .suggestion-title { padding:0 clamp(16px,4vw,34px) 7px; color:#aa9299; font-size:10px; letter-spacing:.04em; }
+    .suggestions { display:grid; grid-auto-flow:column; grid-template-rows:repeat(2,max-content); grid-auto-columns:max-content; gap:7px; padding:0 clamp(16px,4vw,34px) 13px; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; scrollbar-color:#743447 transparent; }
+    .suggestions button { max-width:230px; border:1px solid #8c59624f; background:transparent; color:#d8c5c8; border-radius:99px; padding:8px 11px; cursor:pointer; font:11px 'Noto Sans Armenian',Montserrat,sans-serif; white-space:nowrap; }
+    .suggestions button:hover { border-color:var(--rose); color:#fff; }
+    form { display:flex; gap:10px; padding:16px; border-top:1px solid #ffffff12; background:#0e090d; }
+    input { flex:1; min-width:0; border:1px solid #ffffff24; border-radius:10px; background:#1a1116; padding:13px 15px; color:#fff; font:13px 'Noto Sans Armenian',Montserrat,sans-serif; outline:none; }
+    input:focus { border-color:#a45a69; } input::placeholder { color:#95868a; }
+    .send { border:0; border-radius:10px; padding:0 19px; color:#fff; background:linear-gradient(135deg,#842b42,#5d1b30); font:600 12px 'Noto Sans Armenian',Montserrat,sans-serif; cursor:pointer; }
+    .send:hover { filter:brightness(1.18); } .send:disabled { opacity:.5; cursor:wait; }
+    .note { text-align:center; color:#9d8e92; font-size:10px; margin:13px 8px 0; }
+    @media(max-width:560px) { .topbar{height:62px}.brand{font-size:15px}.messages{min-height:300px}.message{max-width:90%}.status{font-size:0}.status .dot{width:8px;height:8px}form{padding:12px}.send{padding:0 14px} }
+    html.daemon-embed, html.daemon-embed body { width:100%; height:100%; min-height:100%; overflow:hidden; background:transparent; }
+    html.daemon-embed body { min-height:0; }
+    html.daemon-embed .topbar, html.daemon-embed .intro, html.daemon-embed .note { display:none; }
+    html.daemon-embed main { width:100%; height:100%; margin:0; }
+    html.daemon-embed .chat { width:100%; height:100%; display:flex; flex-direction:column; border-radius:15px; box-shadow:none; }
+    html.daemon-embed .chat-head { flex:0 0 auto; padding:11px 13px; }
+    html.daemon-embed .daemon-avatar { width:36px; height:36px; flex-basis:36px; }
+    html.daemon-embed .daemon-profile { gap:9px; }
+    html.daemon-embed .daemon-profile strong { font-size:12px; }
+    html.daemon-embed .daemon-profile small { font-size:10px; }
+    html.daemon-embed .status { max-width:40%; font-size:9px; text-align:right; }
+    html.daemon-embed .messages { flex:1 1 auto; min-height:0; max-height:none; padding:14px; gap:10px; }
+    html.daemon-embed .message { max-width:90%; padding:10px 12px; font-size:12px; line-height:1.65; }
+    html.daemon-embed .suggestion-title { flex:0 0 auto; padding:0 12px 5px; font-size:9px; }
+    html.daemon-embed .suggestions { flex:0 0 auto; max-height:66px; grid-template-rows:repeat(2,max-content); padding:0 12px 8px; gap:5px; }
+    html.daemon-embed .suggestions button { max-width:190px; padding:6px 8px; font-size:9px; }
+    html.daemon-embed form { flex:0 0 auto; gap:7px; padding:10px; }
+    html.daemon-embed input { padding:11px; font-size:12px; }
+    html.daemon-embed .send { padding:0 12px; font-size:10px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="movieinfo.html">VELVET WHISPERS</a>
+    <a class="back" href="movieinfo.html">← Վերադառնալ գրադարան</a>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="eyebrow">Ուղեցույց դեպի խավարը</div>
+      <h1>Զրուցիր Դեյմոնի հետ</h1>
+      <p>Գտիր պատմություն, բացահայտիր գերբնական աշխարհը կամ ընտրիր՝ ինչ դիտել այս երեկո։</p>
+    </section>
+    <section class="chat" aria-label="Զրույց Դեյմոնի հետ">
+      <div class="chat-head">
+        <div class="daemon-profile"><div class="daemon-avatar" aria-hidden="true"><img src="assets/images/daemon-vampire.png" alt=""><span class="avatar-bat">🦇</span></div><div><strong>Chat with Daemon</strong><small>Կեսգիշերային արխիվի պահապանը</small></div></div>
+        <div class="status" id="service-status"><span class="dot"></span><span id="status-text">Ստուգում եմ տեղային AI-ն…</span></div>
+      </div>
+      <div class="messages" id="messages" aria-live="polite">
+        <div class="message from-daemon welcome">Բարի գալուստ արխիվ։ Ես Դեյմոնն եմ։ Հարցրու որևէ վերնագրի մասին կամ խնդրիր առաջարկել՝ ինչ դիտել։</div>
+      </div>
+      <div class="suggestion-title">Արագ հարցեր</div>
+      <div class="suggestions" id="suggestions" aria-label="Արագ հարցերի առաջարկներ"></div>
+      <form id="chat-form">
+        <input id="chat-input" autocomplete="off" maxlength="500" placeholder="Գրիր հայերենով կամ հայերենը՝ լատինատառ…" aria-label="Քո հաղորդագրությունը">
+        <button class="send" id="send-button" type="submit">ՈւՂԱՐԿԵԼ</button>
+      </form>
+    </section>
+    <p class="note">Տեղային ցուցադրական տարբերակ · զրույցն աշխատում է քո համակարգչում։</p>
+  </main>
+  <script>
+    const apiBase = new URLSearchParams(location.search).get('api') || 'http://127.0.0.1:8000';
+    const historyKey = 'velvet-daemon-history-v2';
+    const messages = document.getElementById('messages');
+    const input = document.getElementById('chat-input');
+    const form = document.getElementById('chat-form');
+    const sendButton = document.getElementById('send-button');
+    const statusText = document.getElementById('status-text');
+    const suggestionsEl = document.getElementById('suggestions');
+    const embedded = window.parent !== window;
+    let conversation = [];
+
+    const cannedSuggestions = [
+      { prompt: 'Բարև, Դեյմոն', answers: [
+        'Բարև։ Ուրախ եմ քեզ տեսնել։ Ի՞նչ պատմություն ես փնտրում այսօր։',
+        'Ողջույն։ Արխիվի դռները բաց են. ի՞նչ դիտենք այս երեկո։',
+        'Բարի վերադարձ։ Վամպիրական պատմությո՞ւն, թե՞ մութ սիրավեպ։',
+        'Բարև։ Ես պատրաստ եմ օգնել ընտրել քո հաջորդ դիտումը։',
+        'Ողջույն։ Ասա տրամադրությունդ, և ես քեզ մի ուղղություն կառաջարկեմ։'
+      ]},
+      { prompt: 'Ի՞նչ դիտեմ այսօր երեկոյան', answers: [
+        'Այսօր ընտրիր «The Originals»-ը, եթե ուզում ես ընտանիքի, ուժի ու գաղտնիքների մասին պատմություն։',
+        'Փորձիր «Twilight»-ը, եթե տրամադրությունդ մութ սիրավեպ է։',
+        'Եթե ուզում ես առեղծված, սկսիր «From»-ից։',
+        'Ավելի մռայլ երեկոյի համար ընտրիր «Penny Dreadful»-ը։',
+        'Եթե ուզում ես թեթև գերբնական արկած, փորձիր «Teen Wolf»-ը։'
+      ]},
+      { prompt: 'Առաջարկիր վամպիրական սերիալ', answers: [
+        'Սկսիր «The Originals»-ից՝ Միքայելսոնների հին ընտանիքի ու Նոր Օռլեանի պայքարի համար։',
+        '«The Vampire Diaries»-ը լավ ընտրություն է սիրո, գաղտնիքների ու վամպիր եղբայրների պատմության համար։',
+        'Եթե ուզում ես մութ ու գոթական մթնոլորտ, փորձիր «Penny Dreadful»-ը։',
+        '«True Blood»-ը միավորում է վամպիրներին, փոքր քաղաքի գաղտնիքներն ու հարաբերությունները։',
+        'Փորձիր «The Strain»-ը, եթե ուզում ես վամպիրական թեմայով ավելի սարսափային պատմություն։'
+      ]},
+      { prompt: 'Առաջարկիր մութ սիրավեպ', answers: [
+        '«Twilight»-ը միավորում է արգելված սերը և վամպիրական աշխարհը։',
+        '«The Vampire Diaries»-ում սիրավեպը խառնվում է վտանգի ու գաղտնիքների հետ։',
+        '«The Originals»-ը ընտրիր, եթե մութ սիրավեպի կողքին ուզում ես նաև ընտանիքի դրամա։',
+        'Եթե ուզում ես ավելի խորհրդավոր մթնոլորտ, փորձիր «Penny Dreadful»-ը։',
+        '«Shadowhunters»-ը կարող է համապատասխանել, եթե սիրում ես գերբնական սիրավեպ ու արկած։'
+      ]},
+      { prompt: 'Պատմիր The Originals-ի մասին', answers: [
+        '«The Originals»-ը պատմում է Միքայելսոնների մասին՝ հնագույն վամպիրական ընտանիքի, որը վերադառնում է Նոր Օռլեան։',
+        'Նոր Օռլեանը դառնում է Միքայելսոնների ընտանիքի իշխանության, հին թշնամությունների ու դաշինքների կենտրոնը։',
+        'Եթե քեզ հետաքրքրում են ընտանիքի կապերը, իշխանության պայքարն ու գերբնական աշխարհը, «The Originals»-ը լավ ընտրություն է։',
+        'Սերիալի կենտրոնում Կլաուսն ու նրա ընտանիքն են՝ իրենց անցյալով, հակառակորդներով ու բարդ հարաբերություններով։',
+        '«The Originals»-ը «The Vampire Diaries»-ի աշխարհից է և կենտրոնանում է Միքայելսոնների ընտանիքի վրա։'
+      ]},
+      { prompt: 'Պատմիր The Vampire Diaries-ի մասին', answers: [
+        '«The Vampire Diaries»-ի պատմությունը սկսվում է Միստիք Ֆոլսում՝ Ելենայի և Սալվատորե եղբայրների շուրջ։',
+        'Սերիալը միավորում է վամպիրական գաղտնիքները, սիրավեպն ու փոքր քաղաքի վտանգները։',
+        'Ստեֆանն ու Դեյմոնը երկու վամպիր եղբայրներ են, որոնց անցյալը փոխում է Միստիք Ֆոլսի կյանքը։',
+        'Եթե սիրում ես երկար պատմություններ՝ գերբնական գաղտնիքներով ու հարաբերություններով, փորձիր այս սերիալը։',
+        '«The Vampire Diaries»-ը վամպիրների, ընկերության, սիրո ու ընտրությունների մասին գերբնական դրամա է։'
+      ]},
+      { prompt: 'Առաջարկիր սարսափ ֆիլմ', answers: [
+        'Վամպիրական դասական մթնոլորտի համար ընտրիր «Dracula»-ն։',
+        'Եթե ուզում ես գոթական սարսափ, փորձիր «Nosferatu»-ն։',
+        '«From Dusk Till Dawn»-ը հարմար է, եթե ուզում ես սարսափը խառնել գործողության հետ։',
+        '«Priest»-ը գերբնական գործողության ու վամպիրական վտանգի համադրություն է։',
+        'Ընտրիր «Underworld»-ը, եթե ուզում ես մութ ֆանտաստիկա ու վամպիրների պայքար։'
+      ]},
+      { prompt: 'Առաջարկիր վամպիրական մարտաֆիլմ', answers: [
+        '«Underworld»-ը լավ ընտրություն է վամպիրների ու մարդագայլերի պայքարով լի մարտաֆիլմի համար։',
+        'Փորձիր «Blade»-ը, եթե ուզում ես արագ զարգացող վամպիրական մարտաֆիլմ։',
+        '«Priest»-ում վամպիրների դեմ պայքարը միախառնվում է գերբնական գործողության հետ։',
+        'Եթե սիրում ես մութ աշխարհ ու շատ գործողություն, ընտրիր «Underworld»-ը։',
+        '«Blade»-ը կարող է համապատասխանել, եթե ուզում ես վամպիրների մասին ավելի մարտական պատմություն։'
+      ]},
+      { prompt: 'Ուզում եմ գերբնական պատմություն', answers: [
+        '«Lucifer»-ը միավորում է առեղծվածը, հումորն ու գերբնական հերոսին։',
+        '«From»-ը ընտրիր, եթե ուզում ես փակ քաղաքի անհանգիստ առեղծված։',
+        '«Teen Wolf»-ը գերբնական արկած է ընկերության ու վտանգի մասին։',
+        '«The Order»-ում համալսարանական կյանքը խառնվում է մոգության ու գաղտնի միությունների հետ։',
+        'Եթե ուզում ես անիմացիոն մութ ֆանտաստիկա, փորձիր «Castlevania»-ն։'
+      ]},
+      { prompt: 'Առաջարկիր մեկ ֆիլմ', answers: [
+        'Ընտրիր «Dracula»-ն, եթե այս երեկո ուզում ես դիտել մեկ ամբողջական պատմություն։',
+        '«Twilight»-ը հարմար ընտրություն է, եթե ուզում ես ֆիլմային մութ սիրավեպ։',
+        'Փորձիր «Priest»-ը՝ գերբնական գործողության համար։',
+        'Եթե քիչ ժամանակ ունես, վերցրու սիրելի ժանրիդ մեկ ֆիլմ և պահիր սերիալը հաջորդ երեկոյի համար։',
+        '«From Dusk Till Dawn»-ը դիտիր, եթե ուզում ես մեկ ֆիլմով ամբողջացնել սարսափային երեկոն։'
+      ]},
+      { prompt: 'Առաջարկիր մութ ֆանտաստիկա', answers: [
+        '«Castlevania»-ն առաջարկում եմ, եթե սիրում ես գոթական անիմացիա ու վամպիրական աշխարհներ։',
+        '«The Order»-ը խառնում է մոգությունը, գաղտնի միություններն ու համալսարանական կյանքը։',
+        'Փորձիր «Penny Dreadful»-ը՝ մռայլ գոթական պատմությունների համար։',
+        '«Underworld»-ը լավ ընտրություն է վամպիրների ու մարդագայլերի հակամարտության համար։',
+        'Եթե ուզում ես մեծ գերբնական աշխարհ, փորձիր «Shadowhunters»-ը։'
+      ]},
+      { prompt: 'Ընտրիր ֆիլմ այս երեկոյի համար', answers: [
+        'Այս երեկո դիտիր «The Originals»-ը՝ ընտանիքի ու իշխանության դրամայի համար։',
+        'Երեկոյան մթնոլորտի համար միացրու «Penny Dreadful»-ը։',
+        'Եթե ուզում ես սիրավեպ, ընտրիր «Twilight»-ը։',
+        'Ավելի սարսափային երեկոյի համար փորձիր «Nosferatu»-ն։',
+        'Եթե տրամադրությունդ գործողություն է, ընտրիր «Underworld»-ը։'
+      ]},
+      { prompt: 'Ընտրիր ըստ տրամադրության', flow: 'mood' }
+    ];
+    const moodOptions = [
+      { label: '💕 Սիրավեպ', intro: 'Սիրավե՞պ ես ուզում։ Ահա մի քանի մութ ու գերբնական ընտրություն։', suggestions: ['Առաջարկիր մութ սիրավեպ', 'Առաջարկիր վամպիրական սերիալ', 'Պատմիր The Vampire Diaries-ի մասին'] },
+      { label: '🕯️ Խորհրդավոր', intro: 'Եթե ուզում ես գաղտնիքներ ու մռայլ մթնոլորտ, այս ընտրություններից սկսիր։', suggestions: ['Առաջարկիր մութ ֆանտաստիկա', 'Ուզում եմ գերբնական պատմություն', 'Պատմիր The Originals-ի մասին'] },
+      { label: '😱 Սարսափ', intro: 'Սարսափի համար ընտրիր՝ գոթակա՞ն մթնոլորտ, վամպիրների՞ մասին պատմություն, թե՞ գերբնական արկած։', suggestions: ['Առաջարկիր սարսափ ֆիլմ', 'Առաջարկիր մութ ֆանտաստիկա', 'Առաջարկիր վամպիրական սերիալ'] },
+      { label: '⚔️ Գործողություն', intro: 'Գործողության ու գերբնական վտանգի համար կարող ես սկսել այս տարբերակներից։', suggestions: ['Առաջարկիր վամպիրական մարտաֆիլմ', 'Առաջարկիր սարսափ ֆիլմ', 'Ուզում եմ գերբնական պատմություն'] },
+      { label: '🌙 Թեթև արկած', intro: 'Թեթև գերբնական արկածի համար ահա մի քանի տարբերակ։', suggestions: ['Ուզում եմ գերբնական պատմություն', 'Ի՞նչ դիտեմ այսօր երեկոյան', 'Առաջարկիր մեկ ֆիլմ'] }
+    ];
+    const moodQuestions = [
+      'Ի՞նչ տրամադրություն ունես այսօր։ Ընտրիր քեզ ամենամոտ տարբերակը։',
+      'Այս երեկո ի՞նչ ես նախընտրում՝ սիրավե՞պ, լարվածությո՞ւն, թե՞ արկած։',
+      'Ընտրիր տրամադրությունդ, և ես կառաջարկեմ համապատասխան պատմություններ։',
+      'Ի՞նչ մթնոլորտ ես փնտրում այս երեկոյի համար։',
+      'Ասա՝ ինչ տրամադրությամբ ես, ու ընտրիր առաջարկներից մեկը։'
+    ];
+    try {
+      const saved = JSON.parse(localStorage.getItem(historyKey) || '[]');
+      if (Array.isArray(saved)) conversation = saved.filter(item => item && ['user', 'assistant'].includes(item.role) && typeof item.content === 'string').slice(-12);
+    } catch { conversation = []; }
+
+    function addMessage(text, who) {
+      const bubble = document.createElement('div');
+      bubble.className = `message ${who === 'user' ? 'from-user' : 'from-daemon'}`;
+      bubble.textContent = text;
+      messages.appendChild(bubble);
+      messages.scrollTop = messages.scrollHeight;
+      return bubble;
+    }
+
+    function notifyParent(type) {
+      if (embedded) window.parent.postMessage({ source: 'daemon-widget', type }, location.origin);
+    }
+
+    function normalizePrompt(value) {
+      return value.toLocaleLowerCase('hy').replace(/[?!։,.՝…]/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    const latinPromptAliases = [
+      { pattern: /^(?:arajarki|arajarkir)\s+(?:mi\s+)?film$/, prompt: 'Առաջարկիր մեկ ֆիլմ' },
+      { pattern: /^(?:inch|inchy)\s+film\s+nayem$/, prompt: 'Ի՞նչ դիտեմ այսօր երեկոյան' },
+      { pattern: /^(?:erekoyan|erekoian)\s+ditum$/, prompt: 'Ի՞նչ դիտեմ այսօր երեկոյան' },
+      { pattern: /^(?:arajarki|arajarkir)\s+vampirakan\s+serial$/, prompt: 'Առաջարկիր վամպիրական սերիալ' },
+      { pattern: /^(?:arajarki|arajarkir)\s+(?:mout|mut)\s+siravep$/, prompt: 'Առաջարկիր մութ սիրավեպ' },
+      { pattern: /^(?:patmir|patmi)\s+the\s+originals$/, prompt: 'Պատմիր The Originals-ի մասին' },
+      { pattern: /^(?:yntrir|yntrel)\s+yst\s+tramadrutyan$/, prompt: 'Ընտրիր ըստ տրամադրության' }
+    ];
+
+    function findCannedSuggestion(text) {
+      const key = normalizePrompt(text);
+      const directMatch = cannedSuggestions.find(item => normalizePrompt(item.prompt) === key);
+      if (directMatch) return directMatch;
+      const alias = latinPromptAliases.find(item => item.pattern.test(key));
+      return alias ? cannedSuggestions.find(item => item.prompt === alias.prompt) : undefined;
+    }
+
+    function saveConversation() {
+      try { localStorage.setItem(historyKey, JSON.stringify(conversation.slice(-12))); } catch { }
+    }
+
+    function answerFromBase(text, answers) {
+      notifyParent('engage');
+      conversation.push({ role: 'user', content: text });
+      addMessage(text, 'user');
+      input.value = '';
+      const waiting = addMessage('Դեյմոնը բացում է արխիվը…', 'daemon');
+      const answer = answers[Math.floor(Math.random() * answers.length)];
+      window.setTimeout(() => {
+        waiting.textContent = answer;
+        conversation.push({ role: 'assistant', content: answer });
+        saveConversation();
+      }, 240);
+    }
+
+    function renderCannedSuggestions(items = cannedSuggestions) {
+      suggestionsEl.replaceChildren();
+      items.forEach(item => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = item.prompt;
+        button.addEventListener('click', () => {
+          if (item.flow === 'mood') startMoodPicker(item.prompt);
+          else if (item.mood) chooseMood(item.mood);
+          else answerFromBase(item.prompt, item.answers);
+        });
+        suggestionsEl.appendChild(button);
+      });
+    }
+
+    function startMoodPicker(prompt) {
+      notifyParent('engage');
+      conversation.push({ role: 'user', content: prompt });
+      addMessage(prompt, 'user');
+      const answer = moodQuestions[Math.floor(Math.random() * moodQuestions.length)];
+      addMessage(answer, 'daemon');
+      conversation.push({ role: 'assistant', content: answer });
+      saveConversation();
+      renderCannedSuggestions(moodOptions.map(mood => ({
+        prompt: mood.label,
+        answers: [],
+        mood
+      })));
+    }
+
+    function chooseMood(mood) {
+      notifyParent('engage');
+      conversation.push({ role: 'user', content: mood.label });
+      addMessage(mood.label, 'user');
+      addMessage(mood.intro, 'daemon');
+      conversation.push({ role: 'assistant', content: mood.intro });
+      saveConversation();
+      const suggestions = mood.suggestions.map(prompt => cannedSuggestions.find(item => item.prompt === prompt)).filter(Boolean);
+      renderCannedSuggestions(suggestions);
+    }
+
+    function handleMessage(text) {
+      const canned = findCannedSuggestion(text);
+      if (canned?.flow === 'mood') startMoodPicker(text);
+      else if (canned) answerFromBase(text, canned.answers);
+      else askDaemon(text);
+    }
+
+    if (conversation.length) {
+      messages.querySelector('.welcome')?.remove();
+      conversation.forEach(item => addMessage(item.content, item.role));
+    }
+
+    async function checkService() {
+      try {
+        const response = await fetch(`${apiBase}/health`, { signal: AbortSignal.timeout(4000) });
+        if (!response.ok) throw new Error('offline');
+        const state = await response.json();
+        if (!state.ai_configured) {
+          document.querySelector('.dot').style.background = '#c9a56a';
+          statusText.textContent = state.ai_provider === 'groq'
+            ? 'Ավելացրու Groq բանալին daemon/.env ֆայլում'
+            : 'Ընտրված AI ծառայությունը կարգավորված չէ';
+        } else if (state.ai_provider === 'ollama' && !state.ollama_model_installed) {
+          document.querySelector('.dot').style.background = '#c9a56a';
+          statusText.textContent = `Ներբեռնիր մոդելը՝ ${state.ai_model}`;
+        } else {
+          document.querySelector('.dot').style.background = '#77b88b';
+          statusText.textContent = state.ai_provider === 'groq'
+            ? 'Արագ ամպային AI-ն և արխիվը հասանելի են'
+            : 'Տեղային AI-ն և արխիվը հասանելի են';
+        }
+      } catch {
+        statusText.textContent = 'Տեղային AI-ն միացված չէ';
+      }
+    }
+
+    async function askDaemon(text) {
+      notifyParent('engage');
+      const previousHistory = conversation.slice(-10);
+      conversation.push({ role: 'user', content: text });
+      addMessage(text, 'user');
+      input.value = '';
+      input.disabled = true;
+      sendButton.disabled = true;
+      const waiting = addMessage('Դեյմոնը փնտրում է արխիվում…', 'daemon');
+      try {
+        const response = await fetch(`${apiBase}/chat`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, history: previousHistory })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.detail || data.error || 'Արխիվը հիմա չի կարող պատասխանել։');
+        const answer = data.reply || data.message || 'Արխիվը հիմա լուռ է։';
+        waiting.textContent = answer;
+        conversation.push({ role: 'assistant', content: answer });
+        saveConversation();
+      } catch (error) {
+        const reason = error instanceof Error ? error.message : String(error);
+        waiting.textContent = reason === 'Failed to fetch'
+          ? 'Չհաջողվեց կապվել զրույցի ծառայության հետ։ Ստուգիր՝ Ollama-ն և Daemon-ի API-ն աշխատո՞ւմ են։'
+          : reason || 'Դեյմոնը չկարողացավ կապվել արխիվի հետ։';
+        if (reason === 'Failed to fetch') statusText.textContent = 'Զրույցի ծառայությունը հասանելի չէ';
+      } finally {
+        input.disabled = false;
+        sendButton.disabled = false;
+        input.focus();
+      }
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (text) handleMessage(text);
+    });
+    input.addEventListener('input', () => {
+      if (input.value.trim()) notifyParent('engage');
+    });
+    renderCannedSuggestions();
+    checkService();
+  </script>
+</body>
+</html>

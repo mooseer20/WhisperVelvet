@@ -43,18 +43,18 @@ body {
 }
 
 @keyframes background-slideshow {
-    0% { background-image: url('../../leg.jpeg'); }
-    16.66% { background-image: url('../../vamp.jpeg'); } 
-    16.67% { background-image: url('../../originals.jpeg'); }
-    33.33% { background-image: url('../../twlight.jpeg'); } 
+    0% { background-image: url('../assets/images/leg.jpeg'); }
+    16.66% { background-image: url('../assets/images/vamp.jpeg'); } 
+    16.67% { background-image: url('../assets/images/originals.jpeg'); }
+    33.33% { background-image: url('../assets/images/twlight.jpeg'); } 
     33.34% { background-image: url('../../BLADE.jpeg'); }
-    50% { background-image: url('../../int.jpeg'); }
-    50.01% { background-image: url('../../dusk.jpeg'); }
-    66.66% { background-image: url('../../drac.jpeg'); } 
-    66.67% { background-image: url('../../underwo.jpeg'); }
-    83.33% { background-image: url('../../vamp.jpeg'); } 
-    83.34% { background-image: url('../../originals.jpeg'); }
-    100% { background-image: url('../../vamp.jpeg') ; } 
+    50% { background-image: url('../assets/images/int.jpeg'); }
+    50.01% { background-image: url('../assets/images/dusk.jpeg'); }
+    66.66% { background-image: url('../assets/images/drac.jpeg'); } 
+    66.67% { background-image: url('../assets/images/underwo.jpeg'); }
+    83.33% { background-image: url('../assets/images/vamp.jpeg'); } 
+    83.34% { background-image: url('../assets/images/originals.jpeg'); }
+    100% { background-image: url('../assets/images/vamp.jpeg') ; } 
 }
 .landing-body .background-image:hover {
     opacity: 1;
